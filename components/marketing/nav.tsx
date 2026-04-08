@@ -92,18 +92,8 @@ export function Nav() {
           ))}
         </div>
 
-        {/* Right action — desktop */}
-        <motion.div
-          custom={navLinks.length + 1}
-          variants={navItemVariants}
-          initial="hidden"
-          animate="visible"
-          className="hidden md:block"
-        >
-          <Link href="/dashboard" className={buttonVariants()}>
-            Try demo
-          </Link>
-        </motion.div>
+        {/* Spacer for layout balance */}
+        <div className="hidden w-20 md:block" />
 
         {/* Mobile hamburger */}
         <motion.button
@@ -154,24 +144,6 @@ export function Nav() {
                   </Link>
                 </motion.div>
               ))}
-              <motion.div
-                initial={{ opacity: 0, x: -12 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{
-                  delay: navLinks.length * 0.06,
-                  duration: 0.4,
-                  ease: customEase,
-                }}
-                className="pt-2"
-              >
-                <Link
-                  href="/dashboard"
-                  onClick={() => setMobileOpen(false)}
-                  className={buttonVariants({ className: "w-full" })}
-                >
-                  Try demo
-                </Link>
-              </motion.div>
             </div>
           </motion.div>
         )}
