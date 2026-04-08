@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Leash — AI Agent Governance
 
-## Getting Started
+> Give your AI agents the keys, not the kingdom.
 
-First, run the development server:
+Leash is drop-in governance for the AI agent workforce. Register every agent, scope what it can touch, watch what it does in real time, require human approval for high-risk actions, and kill agents mid-execution when they go sideways.
+
+**Live demo:** [identityleash.com](https://identityleash.com) (or [leash-azure.vercel.app](https://leash-azure.vercel.app))
+
+## Quick Start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install && npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) for the marketing site. Navigate to `/dashboard` for the interactive demo.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## What's Built
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Marketing Site (`/`)
+- Hero with word-by-word stagger animation
+- Problem statement with animated SVG shield illustration
+- Features grid (6 cards) with scroll-triggered reveals
+- How it works (3 steps + syntax-highlighted code example)
+- Live demo teaser section
+- Pricing cards (3 tiers)
+- Waitlist email capture form
+- Footer with navigation
 
-## Learn More
+### Additional Pages
+- `/pricing` — Full pricing page with FAQ accordion
+- `/about` — Founder story, values, CTA
+- `/docs` — Docs stub with installation guide and code walkthrough
 
-To learn more about Next.js, take a look at the following resources:
+### Dashboard (`/dashboard`)
+- **Overview** — Metric cards, live activity feed (auto-updates every 4s), agent mini-cards
+- **Agents** (`/dashboard/agents`) — Searchable/sortable table of 6 agents with status dots, risk bars, scope badges
+- **Agent Detail** (`/dashboard/agents/[id]`) — Tabs: Overview, Activity, Scopes, Settings. Includes the **interactive live demo simulation**
+- **Audit Log** (`/dashboard/audit`) — 80+ entries, filterable by agent/action/status/time, paginated
+- **Approvals** (`/dashboard/approvals`) — 2 pending requests with approve/deny flow
+- **Settings** (`/dashboard/settings`) — API key management with generate/copy, account preferences
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Live Demo Simulation (`/dashboard/agents/refactor-bot`)
+Three interactive tasks demonstrate Leash's core value:
+1. **Refactor auth module** — Clean run through read/write/test with real-time audit stream
+2. **Add npm dependency** — Triggers human approval flow with modal
+3. **Read production secrets** — Triggers anomaly detection, scope violation, and kill switch
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## What's Mocked vs. Real
 
-## Deploy on Vercel
+| Feature | Status |
+|---|---|
+| Marketing site | Fully built, production-quality copy |
+| Dashboard UI | Fully interactive with seeded data |
+| Live demo simulation | Real-time with animated audit stream |
+| Approval/deny flow | Works in-browser (local state) |
+| API key generation | Generates fake keys, copy works |
+| Backend/database | None — all data is in-memory (`lib/fake-data.ts`) |
+| Authentication | None — dashboard is public for demo |
+| Waitlist form | Fake submission (no real backend) |
+| Real-time updates | `setInterval` + React state, not WebSockets |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Tech Stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js 16 (App Router), TypeScript, Tailwind CSS v4
+- shadcn/ui components
+- Framer Motion (scroll-triggered reveals, spring physics, staggered offsets)
+- Lucide React icons
+- Inter + JetBrains Mono fonts
+- Dark mode only
+
+## Project Structure
+
+```
+leash/
+├── app/
+│   ├── layout.tsx              # Root layout, fonts, metadata
+│   ├── page.tsx                # Marketing homepage
+│   ├── pricing/page.tsx        # Pricing page with FAQ
+│   ├── about/page.tsx          # About page
+│   ├── docs/page.tsx           # Docs stub
+│   ├── dashboard/
+│   │   ├── layout.tsx          # Dashboard shell with sidebar
+│   │   ├── page.tsx            # Dashboard overview
+│   │   ├── agents/page.tsx     # Agent list
+│   │   ├── agents/[id]/page.tsx # Agent detail + live demo
+│   │   ├── audit/page.tsx      # Global audit log
+│   │   ├── approvals/page.tsx  # Pending approvals queue
+│   │   └── settings/page.tsx   # API keys management
+│   └── globals.css
+├── components/
+│   ├── marketing/              # 10 marketing components
+│   ├── dashboard/              # 8 dashboard components
+│   └── ui/                     # shadcn components
+├── lib/
+│   ├── fake-data.ts            # Seeded agents, actions, approvals, API keys
+│   ├── demo-engine.ts          # Task simulation logic (3 tasks)
+│   └── utils.ts                # Helpers (relativeTime, formatNumber, etc.)
+└── tailwind.config.ts
+```
+
+## License
+
+Proprietary. All rights reserved.
