@@ -53,7 +53,7 @@ export default function ApprovalsPage() {
           <motion.span
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="flex h-5 min-w-5 items-center justify-center rounded-full bg-amber-100 px-1.5 text-xs font-bold text-amber-700"
+            className="flex h-5 min-w-5 items-center justify-center rounded-full bg-warning/20 px-1.5 text-xs font-bold text-warning"
           >
             {pendingCount}
           </motion.span>
@@ -76,7 +76,7 @@ export default function ApprovalsPage() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, x: -40, scale: 0.95 }}
                   transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                  className="rounded-xl border border-amber-200 bg-amber-50 p-4 shadow-sm"
+                  className="rounded-xl border border-warning/30 bg-warning/10 p-4"
                 >
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                     <div className="space-y-2">
@@ -126,7 +126,7 @@ export default function ApprovalsPage() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="rounded-xl border border-border-leash bg-white py-12 text-center shadow-sm"
+              className="rounded-xl border border-border-leash bg-surface py-12 text-center"
             >
               <CheckCircle2 className="mx-auto mb-2 h-8 w-8 text-success/60" />
               <p className="text-sm text-text-muted">
@@ -154,7 +154,7 @@ export default function ApprovalsPage() {
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    className="rounded-xl border border-border-leash bg-white p-4 shadow-sm"
+                    className="rounded-xl border border-border-leash bg-surface p-4"
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
@@ -173,8 +173,8 @@ export default function ApprovalsPage() {
                         <span
                           className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium ${
                             isApproved
-                              ? "bg-emerald-50 text-emerald-700"
-                              : "bg-red-50 text-red-700"
+                              ? "bg-success/10 text-success"
+                              : "bg-danger/10 text-danger"
                           }`}
                         >
                           {isApproved ? (
@@ -196,7 +196,7 @@ export default function ApprovalsPage() {
               })}
             </div>
           ) : (
-            <div className="rounded-xl border border-border-leash bg-white py-8 text-center shadow-sm">
+            <div className="rounded-xl border border-border-leash bg-surface py-8 text-center">
               <p className="text-xs text-text-muted">
                 Resolved approvals will appear here
               </p>

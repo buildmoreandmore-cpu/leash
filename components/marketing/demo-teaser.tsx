@@ -52,7 +52,7 @@ export function DemoTeaser() {
         >
           <Link
             href="/dashboard/agents/refactor-bot"
-            className="inline-flex h-12 items-center justify-center rounded-lg bg-white px-8 text-base font-semibold text-text-primary transition-colors hover:bg-white/90"
+            className="inline-flex h-12 items-center justify-center rounded-lg bg-white px-8 text-base font-semibold text-primary transition-colors hover:bg-white/90"
           >
             Launch the demo
           </Link>

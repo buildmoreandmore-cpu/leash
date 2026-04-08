@@ -36,18 +36,18 @@ const decisionStyles: Record<
   ActionDecision,
   { bg: string; text: string; pulse?: boolean }
 > = {
-  allow: { bg: "bg-emerald-50", text: "text-emerald-700" },
-  warn: { bg: "bg-amber-50", text: "text-amber-700" },
-  deny: { bg: "bg-red-50", text: "text-red-700" },
-  killed: { bg: "bg-red-100", text: "text-red-700", pulse: true },
+  allow: { bg: "bg-success/10", text: "text-success" },
+  warn: { bg: "bg-warning/10", text: "text-warning" },
+  deny: { bg: "bg-danger/10", text: "text-danger" },
+  killed: { bg: "bg-danger/20", text: "text-danger", pulse: true },
 };
 
 const actionBadgeStyles: Record<string, string> = {
-  read: "bg-cyan-50 text-cyan-700",
-  write: "bg-amber-50 text-amber-700",
-  run: "bg-emerald-50 text-emerald-700",
-  call: "bg-blue-50 text-blue-700",
-  done: "bg-emerald-50 text-emerald-700",
+  read: "bg-info/10 text-info",
+  write: "bg-warning/10 text-warning",
+  run: "bg-success/10 text-success",
+  call: "bg-primary/10 text-primary",
+  done: "bg-success/10 text-success",
 };
 
 export function AuditRow({
@@ -62,10 +62,10 @@ export function AuditRow({
   index = 0,
 }: AuditRowProps) {
   const ds = decisionStyles[decision];
-  const actionStyle = actionBadgeStyles[action] ?? "bg-blue-50 text-blue-700";
+  const actionStyle = actionBadgeStyles[action] ?? "bg-primary/10 text-primary";
 
   const content = (
-    <div className="flex items-center gap-3 rounded-lg border border-border-leash bg-white px-3 py-2 text-sm transition-colors hover:bg-slate-50">
+    <div className="flex items-center gap-3 rounded-lg border border-border-leash bg-surface px-3 py-2 text-sm transition-colors hover:bg-surface-hover">
       {/* Timestamp */}
       <span className="w-16 shrink-0 text-xs text-text-muted tabular-nums">
         {relativeTime(timestamp)}

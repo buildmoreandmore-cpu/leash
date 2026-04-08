@@ -36,17 +36,17 @@ const statusStyles: Record<
 > = {
   active: {
     dot: "bg-success",
-    pill: "bg-emerald-50 text-emerald-700",
+    pill: "bg-success/10 text-success",
     label: "Active",
   },
   paused: {
     dot: "bg-warning",
-    pill: "bg-amber-50 text-amber-700",
+    pill: "bg-warning/10 text-warning",
     label: "Paused",
   },
   revoked: {
     dot: "bg-danger",
-    pill: "bg-red-50 text-red-700",
+    pill: "bg-danger/10 text-danger",
     label: "Revoked",
   },
 };
@@ -133,10 +133,10 @@ export default function AgentsPage() {
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto rounded-xl border border-border-leash bg-white shadow-sm">
+      <div className="overflow-x-auto rounded-xl border border-border-leash bg-surface">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-border-leash bg-slate-50 text-left text-xs text-text-muted">
+            <tr className="border-b border-border-leash bg-surface-hover text-left text-xs text-text-muted">
               <th className="px-4 py-3 font-medium">Name</th>
               <th className="px-4 py-3 font-medium">Owner</th>
               <th className="px-4 py-3 font-medium">Scopes</th>
@@ -169,7 +169,7 @@ export default function AgentsPage() {
                     delay: i * 0.04,
                   }}
                   onClick={() => router.push(`/dashboard/agents/${agent.id}`)}
-                  className="cursor-pointer border-b border-border-leash/30 transition-colors hover:bg-slate-50"
+                  className="cursor-pointer border-b border-border-leash/30 transition-colors hover:bg-surface-hover"
                 >
                   {/* Name + status dot */}
                   <td className="px-4 py-3">
@@ -207,7 +207,7 @@ export default function AgentsPage() {
                   {/* Risk score bar */}
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-2">
-                      <div className="h-1.5 w-16 overflow-hidden rounded-full bg-slate-100">
+                      <div className="h-1.5 w-16 overflow-hidden rounded-full bg-surface-hover">
                         <div
                           className={`h-full rounded-full ${riskColor}`}
                           style={{ width: `${riskPct}%` }}
@@ -248,7 +248,7 @@ export default function AgentsPage() {
                         <MoreHorizontal className="h-4 w-4 text-text-muted" />
                       </button>
                       {menuOpen === agent.id && (
-                        <div className="absolute right-0 top-8 z-10 w-36 rounded-lg border border-border-leash bg-white py-1 shadow-lg">
+                        <div className="absolute right-0 top-8 z-10 w-36 rounded-lg border border-border-leash bg-surface py-1">
                           <button
                             onClick={(e) => {
                               e.stopPropagation();

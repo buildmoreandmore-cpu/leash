@@ -106,10 +106,10 @@ export function Features() {
                 animate={inView ? "visible" : "hidden"}
                 whileHover={{
                   y: -2,
-                  boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
+                  boxShadow: "0 0 16px #3b82f622",
                 }}
                 transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                className="rounded-xl border border-border-leash bg-white p-8"
+                className="rounded-xl border border-border-leash bg-surface p-8"
               >
                 <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
                   <Icon className="h-5 w-5 text-primary" />

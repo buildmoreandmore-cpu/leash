@@ -21,7 +21,7 @@ export function Topbar() {
   ] ?? "Overview";
 
   return (
-    <header className="flex h-14 shrink-0 items-center justify-between border-b border-border-leash bg-white px-6">
+    <header className="flex h-14 shrink-0 items-center justify-between border-b border-border-leash bg-surface px-6">
       {/* Left: Breadcrumb */}
       <nav className="flex items-center gap-1.5 text-sm">
         <span className="text-text-muted">Dashboard</span>

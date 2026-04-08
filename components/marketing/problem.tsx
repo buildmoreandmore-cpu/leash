@@ -67,10 +67,10 @@ export function Problem() {
               <motion.path
                 d="M100 10 L185 50 L185 130 Q185 200 100 230 Q15 200 15 130 L15 50 Z"
                 fill="url(#shieldGrad)"
-                stroke="#cbd5e1"
+                stroke="#1e3558"
                 strokeWidth="1.5"
                 animate={{
-                  stroke: ["#cbd5e1", "#3b82f6", "#cbd5e1"],
+                  stroke: ["#1e3558", "#3b82f6", "#1e3558"],
                 }}
                 transition={{
                   duration: 3,

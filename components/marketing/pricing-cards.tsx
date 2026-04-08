@@ -113,13 +113,13 @@ export function PricingCards() {
               animate={inView ? "visible" : "hidden"}
               whileHover={{
                 y: -2,
-                boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
+                boxShadow: "0 0 16px #3b82f622",
               }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
               className={`relative flex flex-col rounded-xl border p-8 ${
                 tier.popular
-                  ? "border-primary bg-white"
-                  : "border-border-leash bg-white"
+                  ? "border-primary bg-surface"
+                  : "border-border-leash bg-surface"
               }`}
             >
               {/* Popular badge */}

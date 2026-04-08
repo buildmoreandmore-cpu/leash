@@ -118,7 +118,7 @@ export default function AgentDetailPage({
             <h1 className="text-xl font-bold text-text-primary">
               {agent.name}
             </h1>
-            <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-medium capitalize text-text-secondary">
+            <span className="rounded-full bg-surface-hover px-2 py-0.5 text-xs font-medium capitalize text-text-secondary">
               {statusLabel[effectiveStatus]}
             </span>
           </div>
@@ -166,7 +166,7 @@ export default function AgentDetailPage({
         <TabsContent value="overview">
           <div className="mt-4 space-y-6">
             {/* Live Demo */}
-            <div className="rounded-xl border border-border-leash bg-white p-4 shadow-sm">
+            <div className="rounded-xl border border-border-leash bg-surface p-4">
               <h3 className="mb-4 text-sm font-semibold text-text-primary">
                 Live Simulation
               </h3>
@@ -174,7 +174,7 @@ export default function AgentDetailPage({
             </div>
 
             {/* Scopes panel */}
-            <div className="rounded-xl border border-border-leash bg-white p-4 shadow-sm">
+            <div className="rounded-xl border border-border-leash bg-surface p-4">
               <h3 className="mb-3 text-sm font-semibold text-text-primary">
                 Granted Scopes
               </h3>
@@ -190,7 +190,7 @@ export default function AgentDetailPage({
             </div>
 
             {/* Recent actions */}
-            <div className="rounded-xl border border-border-leash bg-white shadow-sm">
+            <div className="rounded-xl border border-border-leash bg-surface">
               <div className="border-b border-border-leash px-4 py-3">
                 <h3 className="text-sm font-semibold text-text-primary">
                   Recent Actions
@@ -227,7 +227,7 @@ export default function AgentDetailPage({
         {/* ---------------------------------------------------------------- */}
         <TabsContent value="activity">
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-border-leash bg-white shadow-sm">
+            <div className="rounded-xl border border-border-leash bg-surface">
               <div className="border-b border-border-leash px-4 py-3">
                 <h3 className="text-sm font-semibold text-text-primary">
                   Full Activity Log
@@ -292,7 +292,7 @@ export default function AgentDetailPage({
         {/* ---------------------------------------------------------------- */}
         <TabsContent value="scopes">
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-border-leash bg-white p-4 shadow-sm">
+            <div className="rounded-xl border border-border-leash bg-surface p-4">
               <h3 className="mb-4 text-sm font-semibold text-text-primary">
                 Manage Scopes
               </h3>
@@ -334,7 +334,7 @@ export default function AgentDetailPage({
                       key={`${s}-${i}`}
                       initial={{ opacity: 0, x: -8 }}
                       animate={{ opacity: 1, x: 0 }}
-                      className="flex items-center justify-between rounded-lg border border-border-leash bg-slate-50 px-3 py-2"
+                      className="flex items-center justify-between rounded-lg border border-border-leash bg-surface-hover px-3 py-2"
                     >
                       <ScopeBadge scope={s} />
                       <button
@@ -361,7 +361,7 @@ export default function AgentDetailPage({
         <TabsContent value="settings">
           <div className="mt-4 space-y-6">
             {/* Metadata */}
-            <div className="rounded-xl border border-border-leash bg-white p-4 shadow-sm">
+            <div className="rounded-xl border border-border-leash bg-surface p-4">
               <h3 className="mb-4 text-sm font-semibold text-text-primary">
                 Agent Metadata
               </h3>
@@ -397,7 +397,7 @@ export default function AgentDetailPage({
             </div>
 
             {/* Webhooks */}
-            <div className="rounded-xl border border-border-leash bg-white p-4 shadow-sm">
+            <div className="rounded-xl border border-border-leash bg-surface p-4">
               <h3 className="mb-4 text-sm font-semibold text-text-primary">
                 Webhook Configuration
               </h3>
@@ -420,7 +420,7 @@ export default function AgentDetailPage({
             </div>
 
             {/* Danger zone */}
-            <div className="rounded-xl border border-red-200 bg-red-50 p-4">
+            <div className="rounded-xl border border-danger/30 bg-danger/10 p-4">
               <h3 className="mb-2 flex items-center gap-2 text-sm font-semibold text-danger">
                 <AlertTriangle className="h-4 w-4" /> Danger Zone
               </h3>

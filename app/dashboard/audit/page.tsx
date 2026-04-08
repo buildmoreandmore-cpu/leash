@@ -122,7 +122,7 @@ export default function AuditLogPage() {
         <select
           value={agentFilter}
           onChange={(e) => handleFilterChange(setAgentFilter, e.target.value)}
-          className="h-8 rounded-lg border border-border-leash bg-white px-2 text-xs text-text-secondary outline-none transition-colors focus:border-primary"
+          className="h-8 rounded-lg border border-border-leash bg-surface px-2 text-xs text-text-secondary outline-none transition-colors focus:border-primary"
         >
           {agentOptions.map((o) => (
             <option key={o.value} value={o.value}>
@@ -133,7 +133,7 @@ export default function AuditLogPage() {
         <select
           value={actionFilter}
           onChange={(e) => handleFilterChange(setActionFilter, e.target.value)}
-          className="h-8 rounded-lg border border-border-leash bg-white px-2 text-xs text-text-secondary outline-none transition-colors focus:border-primary"
+          className="h-8 rounded-lg border border-border-leash bg-surface px-2 text-xs text-text-secondary outline-none transition-colors focus:border-primary"
         >
           {actionOptions.map((o) => (
             <option key={o.value} value={o.value}>
@@ -144,7 +144,7 @@ export default function AuditLogPage() {
         <select
           value={statusFilter}
           onChange={(e) => handleFilterChange(setStatusFilter, e.target.value)}
-          className="h-8 rounded-lg border border-border-leash bg-white px-2 text-xs text-text-secondary outline-none transition-colors focus:border-primary"
+          className="h-8 rounded-lg border border-border-leash bg-surface px-2 text-xs text-text-secondary outline-none transition-colors focus:border-primary"
         >
           {statusOptions.map((o) => (
             <option key={o.value} value={o.value}>
@@ -155,7 +155,7 @@ export default function AuditLogPage() {
         <select
           value={timeFilter}
           onChange={(e) => handleFilterChange(setTimeFilter, e.target.value)}
-          className="h-8 rounded-lg border border-border-leash bg-white px-2 text-xs text-text-secondary outline-none transition-colors focus:border-primary"
+          className="h-8 rounded-lg border border-border-leash bg-surface px-2 text-xs text-text-secondary outline-none transition-colors focus:border-primary"
         >
           {timeOptions.map((o) => (
             <option key={o.value} value={o.value}>
@@ -166,8 +166,8 @@ export default function AuditLogPage() {
       </motion.div>
 
       {/* Table header */}
-      <div className="rounded-xl border border-border-leash bg-white shadow-sm">
-        <div className="border-b border-border-leash bg-slate-50 px-4 py-2">
+      <div className="rounded-xl border border-border-leash bg-surface">
+        <div className="border-b border-border-leash bg-surface-hover px-4 py-2">
           <div className="flex items-center gap-3 text-xs text-text-muted">
             <span className="w-16 shrink-0">Time</span>
             <span className="w-28 shrink-0">Agent</span>

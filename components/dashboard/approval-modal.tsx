@@ -36,7 +36,7 @@ export function ApprovalModal({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm"
+            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm"
             onClick={onClose}
           />
 
@@ -49,7 +49,7 @@ export function ApprovalModal({
             className="fixed inset-0 z-50 flex items-center justify-center p-4"
           >
             <div
-              className="w-full max-w-md rounded-xl border border-border-leash bg-white p-6 shadow-xl"
+              className="w-full max-w-md rounded-xl border border-border-leash bg-surface p-6"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
@@ -68,7 +68,7 @@ export function ApprovalModal({
               </div>
 
               {/* Details card */}
-              <div className="mt-5 rounded-lg border border-border-leash bg-slate-50 p-4">
+              <div className="mt-5 rounded-lg border border-border-leash bg-surface-hover p-4">
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <span className="text-xs text-text-muted">Agent</span>

@@ -38,10 +38,10 @@ export function RiskMeter({ score, animated = true }: RiskMeterProps) {
       </div>
       <div className="relative h-2 w-full overflow-hidden rounded-full">
         {/* Background zones */}
-        <div className="absolute inset-0 flex bg-slate-100">
-          <div className="h-full w-[30%] bg-emerald-100" />
-          <div className="h-full w-[30%] bg-amber-100" />
-          <div className="h-full w-[40%] bg-red-100" />
+        <div className="absolute inset-0 flex bg-surface-hover">
+          <div className="h-full w-[30%] bg-success/20" />
+          <div className="h-full w-[30%] bg-warning/20" />
+          <div className="h-full w-[40%] bg-danger/20" />
         </div>
         {/* Filled portion */}
         {animated ? (

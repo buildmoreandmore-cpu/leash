@@ -81,9 +81,9 @@ export function CodeExample({ code, language, filename }: CodeExampleProps) {
   };
 
   return (
-    <div className="group relative overflow-hidden rounded-lg border border-slate-700 bg-[#1e293b] shadow-lg">
+    <div className="group relative overflow-hidden rounded-lg border border-border-leash bg-[#060d1b]">
       {/* Title bar */}
-      <div className="flex items-center justify-between border-b border-slate-600 px-4 py-2.5">
+      <div className="flex items-center justify-between border-b border-border-leash px-4 py-2.5">
         <div className="flex items-center gap-3">
           {/* macOS dots */}
           <div className="flex gap-1.5">
@@ -97,7 +97,7 @@ export function CodeExample({ code, language, filename }: CodeExampleProps) {
         {/* Copy button */}
         <button
           onClick={handleCopy}
-          className="flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-slate-400 transition-colors hover:bg-slate-700 hover:text-slate-300"
+          className="flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-text-muted transition-colors hover:bg-surface-hover hover:text-text-tertiary"
           aria-label="Copy code"
         >
           {copied ? (

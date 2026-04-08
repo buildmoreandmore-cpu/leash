@@ -63,12 +63,12 @@ export function WaitlistForm() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="h-11 flex-1 rounded-lg border border-border-leash bg-white text-text-primary placeholder:text-text-muted"
+                className="h-11 flex-1 rounded-lg border border-border-leash bg-surface text-text-primary placeholder:text-text-muted"
               />
               <Button
                 type="submit"
                 size="lg"
-                className="h-11 shrink-0 rounded-lg bg-text-primary px-6 text-white hover:bg-text-secondary"
+                className="h-11 shrink-0 rounded-lg bg-primary px-6 text-white hover:bg-primary/90"
               >
                 Join waitlist
               </Button>

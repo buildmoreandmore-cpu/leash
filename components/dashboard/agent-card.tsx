@@ -44,7 +44,7 @@ export function AgentCard({
       <motion.div
         whileHover={{ scale: 1.01 }}
         transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-        className="group rounded-lg border border-border-leash bg-white p-3 shadow-sm transition-all hover:bg-surface-hover hover:shadow-md"
+        className="group rounded-lg border border-border-leash bg-surface p-3 transition-all hover:bg-surface-hover"
       >
         {/* Top row: name + status dot */}
         <div className="flex items-center justify-between">
@@ -82,11 +82,11 @@ export function AgentCard({
               {clampedScore}
             </span>
           </div>
-          <div className="mt-0.5 h-1 w-full overflow-hidden rounded-full bg-slate-100">
+          <div className="mt-0.5 h-1 w-full overflow-hidden rounded-full bg-surface-hover">
             <div className="flex h-full">
-              <div className="h-full w-[30%] bg-emerald-100" />
-              <div className="h-full w-[30%] bg-amber-100" />
-              <div className="h-full w-[40%] bg-red-100" />
+              <div className="h-full w-[30%] bg-success/20" />
+              <div className="h-full w-[30%] bg-warning/20" />
+              <div className="h-full w-[40%] bg-danger/20" />
             </div>
           </div>
           <div

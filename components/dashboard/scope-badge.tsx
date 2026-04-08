@@ -3,10 +3,10 @@
 import { cn } from "@/lib/utils";
 
 const prefixColors: Record<string, string> = {
-  read: "bg-cyan-50 text-cyan-700",
-  write: "bg-amber-50 text-amber-700",
-  run: "bg-emerald-50 text-emerald-700",
-  call: "bg-blue-50 text-blue-700",
+  read: "bg-info/10 text-info",
+  write: "bg-warning/10 text-warning",
+  run: "bg-success/10 text-success",
+  call: "bg-primary/10 text-primary",
 };
 
 function getPrefix(scope: string): string {
@@ -16,7 +16,7 @@ function getPrefix(scope: string): string {
 
 export function ScopeBadge({ scope }: { scope: string }) {
   const prefix = getPrefix(scope);
-  const colors = prefixColors[prefix] ?? "bg-blue-50 text-blue-700";
+  const colors = prefixColors[prefix] ?? "bg-primary/10 text-primary";
 
   return (
     <span

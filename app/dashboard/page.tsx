@@ -186,7 +186,7 @@ export default function DashboardOverviewPage() {
                 ease: [0.16, 1, 0.3, 1],
                 delay: i * 0.08,
               }}
-              className="rounded-xl border border-border-leash bg-white p-4 shadow-sm"
+              className="rounded-xl border border-border-leash bg-surface p-4"
             >
               <div className="flex items-center justify-between">
                 <span className="text-xs font-medium text-text-muted">
@@ -215,7 +215,7 @@ export default function DashboardOverviewPage() {
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         {/* Left: Recent Activity (2/3) */}
         <div className="lg:col-span-2">
-          <div className="rounded-xl border border-border-leash bg-white shadow-sm">
+          <div className="rounded-xl border border-border-leash bg-surface">
             <div className="flex items-center justify-between border-b border-border-leash px-4 py-3">
               <div className="flex items-center gap-2">
                 <span className="relative flex h-2 w-2">
@@ -249,7 +249,7 @@ export default function DashboardOverviewPage() {
 
         {/* Right: Agents mini-panel (1/3) */}
         <div className="lg:col-span-1">
-          <div className="rounded-xl border border-border-leash bg-white p-4 shadow-sm">
+          <div className="rounded-xl border border-border-leash bg-surface p-4">
             <h2 className="mb-3 text-sm font-semibold text-text-primary">
               Agents
             </h2>

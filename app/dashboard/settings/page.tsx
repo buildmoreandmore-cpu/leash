@@ -84,7 +84,7 @@ export default function SettingsPage() {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-        className="rounded-xl border border-border-leash bg-white shadow-sm"
+        className="rounded-xl border border-border-leash bg-surface"
       >
         <div className="flex items-center justify-between border-b border-border-leash px-4 py-3">
           <div className="flex items-center gap-2">
@@ -113,7 +113,7 @@ export default function SettingsPage() {
                   Copy this key now. You will not be able to see it again.
                 </DialogDescription>
               </DialogHeader>
-              <div className="flex items-center gap-2 rounded-lg border border-border-leash bg-slate-50 p-3">
+              <div className="flex items-center gap-2 rounded-lg border border-border-leash bg-surface-hover p-3">
                 <code className="flex-1 break-all text-xs text-text-primary">
                   {generatedKey}
                 </code>
@@ -137,7 +137,7 @@ export default function SettingsPage() {
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-border-leash bg-slate-50 text-left text-xs text-text-muted">
+              <tr className="border-b border-border-leash bg-surface-hover text-left text-xs text-text-muted">
                 <th className="px-4 py-2.5 font-medium">Name</th>
                 <th className="px-4 py-2.5 font-medium">Key</th>
                 <th className="px-4 py-2.5 font-medium">Created</th>
@@ -149,7 +149,7 @@ export default function SettingsPage() {
               {keys.map((k) => (
                 <tr
                   key={k.id}
-                  className="border-b border-border-leash/30 transition-colors hover:bg-slate-50"
+                  className="border-b border-border-leash/30 transition-colors hover:bg-surface-hover"
                 >
                   <td className="px-4 py-2.5 font-medium text-text-primary">
                     {k.name}
@@ -167,8 +167,8 @@ export default function SettingsPage() {
                     <span
                       className={`inline-flex rounded-full px-2 py-0.5 text-xs font-medium ${
                         k.status === "active"
-                          ? "bg-emerald-50 text-emerald-700"
-                          : "bg-red-50 text-red-700"
+                          ? "bg-success/10 text-success"
+                          : "bg-danger/10 text-danger"
                       }`}
                     >
                       {k.status}
@@ -188,7 +188,7 @@ export default function SettingsPage() {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: 0.08 }}
-        className="rounded-xl border border-border-leash bg-white p-4 shadow-sm"
+        className="rounded-xl border border-border-leash bg-surface p-4"
       >
         <h2 className="mb-4 text-sm font-semibold text-text-primary">
           Account
@@ -216,7 +216,7 @@ export default function SettingsPage() {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: 0.16 }}
-        className="rounded-xl border border-border-leash bg-white p-4 shadow-sm"
+        className="rounded-xl border border-border-leash bg-surface p-4"
       >
         <h2 className="mb-4 text-sm font-semibold text-text-primary">
           Notification Preferences

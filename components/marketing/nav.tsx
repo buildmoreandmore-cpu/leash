@@ -8,10 +8,7 @@ import { Logo } from "@/components/logo";
 import { buttonVariants } from "@/components/ui/button";
 
 const navLinks = [
-  { label: "Features", href: "#features" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Docs", href: "/docs" },
-  { label: "About", href: "/about" },
+  { label: "Manifesto", href: "/docs" },
 ];
 
 const customEase = [0.16, 1, 0.3, 1] as const;
@@ -58,7 +55,7 @@ export function Nav() {
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-white/80 backdrop-blur-xl border-b border-border-leash shadow-sm"
+          ? "bg-surface/80 backdrop-blur-xl border-b border-border-leash"
           : "bg-transparent"
       }`}
     >
@@ -95,32 +92,18 @@ export function Nav() {
           ))}
         </div>
 
-        {/* Right actions — desktop */}
-        <div className="hidden items-center gap-4 md:flex">
-          <motion.div
-            custom={navLinks.length + 1}
-            variants={navItemVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <Link
-              href="/dashboard"
-              className="text-sm text-text-secondary transition-colors hover:text-text-primary"
-            >
-              Sign in
-            </Link>
-          </motion.div>
-          <motion.div
-            custom={navLinks.length + 2}
-            variants={navItemVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <Link href="/dashboard" className={buttonVariants()}>
-              Get API key
-            </Link>
-          </motion.div>
-        </div>
+        {/* Right action — desktop */}
+        <motion.div
+          custom={navLinks.length + 1}
+          variants={navItemVariants}
+          initial="hidden"
+          animate="visible"
+          className="hidden md:block"
+        >
+          <Link href="/dashboard" className={buttonVariants()}>
+            Try demo
+          </Link>
+        </motion.div>
 
         {/* Mobile hamburger */}
         <motion.button
@@ -148,7 +131,7 @@ export function Nav() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden border-b border-border-leash bg-white/95 backdrop-blur-xl md:hidden"
+            className="overflow-hidden border-b border-border-leash bg-surface/95 backdrop-blur-xl md:hidden"
           >
             <div className="flex flex-col gap-4 px-6 py-6">
               {navLinks.map((link, i) => (
@@ -179,21 +162,14 @@ export function Nav() {
                   duration: 0.4,
                   ease: customEase,
                 }}
-                className="flex flex-col gap-3 pt-2"
+                className="pt-2"
               >
-                <Link
-                  href="/dashboard"
-                  className="text-base text-text-secondary transition-colors hover:text-text-primary"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Sign in
-                </Link>
                 <Link
                   href="/dashboard"
                   onClick={() => setMobileOpen(false)}
                   className={buttonVariants({ className: "w-full" })}
                 >
-                  Get API key
+                  Try demo
                 </Link>
               </motion.div>
             </div>
