@@ -31,9 +31,9 @@ export function Sidebar() {
   return (
     <aside className="flex h-full w-60 shrink-0 flex-col border-r border-border-leash bg-surface">
       {/* Logo */}
-      <div className="flex h-14 items-center px-5">
+      <Link href="/" className="flex h-14 items-center px-5">
         <Logo size="md" animated={false} />
-      </div>
+      </Link>
 
       {/* Nav items */}
       <nav className="mt-2 flex flex-1 flex-col gap-0.5 px-3">
