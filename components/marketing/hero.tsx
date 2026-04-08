@@ -1,7 +1,8 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import Link from "next/link";
+import { useState, useEffect } from "react";
+import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const customEase = [0.16, 1, 0.3, 1] as const;
 
@@ -82,6 +83,115 @@ function FloatingParticle({ delay, x, y, size }: { delay: number; x: string; y: 
         ease: "easeInOut",
       }}
     />
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* Terminal-style CTA — types out a command, "executes" on click              */
+/* -------------------------------------------------------------------------- */
+const CMD = "leash demo --interactive";
+
+function TerminalCTA() {
+  const router = useRouter();
+  const [typed, setTyped] = useState("");
+  const [phase, setPhase] = useState<"typing" | "idle" | "running" | "done">("typing");
+
+  // Typewriter effect on mount
+  useEffect(() => {
+    if (phase !== "typing") return;
+    if (typed.length >= CMD.length) {
+      setPhase("idle");
+      return;
+    }
+    const timeout = setTimeout(
+      () => setTyped(CMD.slice(0, typed.length + 1)),
+      50 + Math.random() * 40
+    );
+    return () => clearTimeout(timeout);
+  }, [typed, phase]);
+
+  const handleClick = () => {
+    if (phase !== "idle") return;
+    setPhase("running");
+    setTimeout(() => {
+      setPhase("done");
+      setTimeout(() => router.push("/dashboard"), 400);
+    }, 1200);
+  };
+
+  return (
+    <motion.button
+      onClick={handleClick}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      className="group relative mx-auto flex cursor-pointer items-center gap-3 rounded-xl border border-border-leash bg-[#060d1b] px-6 py-4 font-mono text-sm transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_30px_#3b82f620]"
+    >
+      {/* Terminal prompt */}
+      <span className="select-none text-success">$</span>
+
+      {/* Command text */}
+      <span className="text-text-primary">
+        {typed}
+        {phase === "typing" && (
+          <motion.span
+            animate={{ opacity: [1, 0] }}
+            transition={{ duration: 0.6, repeat: Infinity }}
+            className="ml-px inline-block h-4 w-[2px] translate-y-[2px] bg-primary"
+          />
+        )}
+        {phase === "idle" && (
+          <motion.span
+            animate={{ opacity: [1, 0] }}
+            transition={{ duration: 0.8, repeat: Infinity }}
+            className="ml-px inline-block h-4 w-[2px] translate-y-[2px] bg-primary"
+          />
+        )}
+      </span>
+
+      {/* Status indicator */}
+      <AnimatePresence mode="wait">
+        {phase === "idle" && (
+          <motion.span
+            key="enter"
+            initial={{ opacity: 0, x: 8 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -8 }}
+            className="ml-auto flex items-center gap-1.5 rounded-md border border-border-leash bg-surface px-2 py-0.5 text-xs text-text-muted"
+          >
+            press <kbd className="rounded border border-border-strong bg-surface-hover px-1.5 py-px text-text-tertiary">↵</kbd>
+          </motion.span>
+        )}
+        {phase === "running" && (
+          <motion.span
+            key="running"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            className="ml-auto flex items-center gap-2 text-xs text-warning"
+          >
+            <motion.span
+              animate={{ rotate: 360 }}
+              transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
+              className="inline-block h-3 w-3 rounded-full border-2 border-warning/30 border-t-warning"
+            />
+            running...
+          </motion.span>
+        )}
+        {phase === "done" && (
+          <motion.span
+            key="done"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="ml-auto flex items-center gap-1.5 text-xs text-success"
+          >
+            <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            connected
+          </motion.span>
+        )}
+      </AnimatePresence>
+    </motion.button>
   );
 }
 
@@ -176,7 +286,7 @@ export function Hero() {
           real time, and kill it mid-run when it goes sideways.
         </motion.p>
 
-        {/* CTAs */}
+        {/* Terminal CTA */}
         <motion.div
           initial={{ opacity: 0, y: 24, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -185,19 +295,9 @@ export function Hero() {
             duration: 0.8,
             ease: customEase,
           }}
-          className="mb-14 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          className="mb-14"
         >
-          <Link
-            href="/dashboard"
-            className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-lg bg-primary px-8 text-base font-semibold text-white transition-all duration-300 hover:bg-primary/90 glow-blue hover:scale-[1.02]"
-          >
-            <motion.span
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-              animate={{ x: ["-100%", "200%"] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "linear", repeatDelay: 2 }}
-            />
-            <span className="relative">Try the live demo</span>
-          </Link>
+          <TerminalCTA />
         </motion.div>
 
         {/* Integration pills with icons */}
