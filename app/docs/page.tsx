@@ -80,9 +80,6 @@ export default function ManifestoPage() {
             <h1 className="mb-4 text-4xl font-bold tracking-tight text-text-primary md:text-5xl">
               Why Leash exists
             </h1>
-            <p className="mb-16 text-lg text-text-tertiary">
-              A manifesto for governing the AI agent workforce.
-            </p>
 
             <div className="flex flex-col gap-16">
               {sections.map((section, i) => (

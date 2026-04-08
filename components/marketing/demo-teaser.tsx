@@ -7,70 +7,66 @@ const customEase = [0.16, 1, 0.3, 1] as const;
 
 export function DemoTeaser() {
   return (
-    <section
-      id="demo-teaser"
-      className="bg-primary px-6 py-24"
-    >
-      <div className="mx-auto max-w-3xl text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-4 text-3xl font-bold tracking-tight text-white md:text-4xl"
-        >
-          Watch an agent get caught in real time.
-        </motion.h2>
+    <section id="demo-teaser" className="relative overflow-hidden px-6 py-24">
+      {/* Subtle gradient bg instead of flat blue */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-primary/10 to-transparent" />
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{
-            delay: 0.1,
-            duration: 0.7,
-            ease: customEase,
-          }}
-          className="mb-10 text-lg text-white/80"
-        >
-          See Leash detect a scope violation, flag an anomaly, and kill a rogue
-          agent — all in a live, interactive simulation.
-        </motion.p>
-
+      <div className="relative mx-auto max-w-3xl text-center">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-60px" }}
-          transition={{
-            delay: 0.2,
-            duration: 0.8,
-            type: "spring",
-            stiffness: 200,
-            damping: 20,
-          }}
-          className="mb-4"
+          transition={{ duration: 0.8, ease: customEase }}
+          className="rounded-2xl border border-border-leash bg-surface p-12 md:p-16"
         >
+          <motion.div
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5"
+            animate={{ borderColor: ["#3b82f633", "#3b82f6", "#3b82f633"] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+            <span className="text-xs font-mono font-medium text-primary">
+              Live interactive demo
+            </span>
+          </motion.div>
+
+          <h2 className="mb-4 text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
+            See the dashboard in action.
+          </h2>
+
+          <p className="mb-8 text-base text-text-tertiary">
+            Run three real scenarios — a clean execution, an approval gate, and a
+            kill switch — in a fully interactive dashboard.
+          </p>
+
           <Link
             href="/dashboard/agents/refactor-bot"
-            className="inline-flex h-12 items-center justify-center rounded-lg bg-white px-8 text-base font-semibold text-primary transition-colors hover:bg-white/90"
+            className="group relative inline-flex h-12 items-center justify-center gap-2 overflow-hidden rounded-lg bg-primary px-8 text-base font-semibold text-white transition-all duration-300 hover:bg-primary/90 glow-blue hover:scale-[1.02]"
           >
-            Launch the demo
+            <motion.span
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+              animate={{ x: ["-100%", "200%"] }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "linear",
+                repeatDelay: 2,
+              }}
+            />
+            <span className="relative">Launch the demo</span>
+            <motion.span
+              className="relative"
+              animate={{ x: [0, 4, 0] }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              →
+            </motion.span>
           </Link>
         </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{
-            delay: 0.35,
-            duration: 0.6,
-            ease: customEase,
-          }}
-          className="text-sm text-white/60"
-        >
-          No signup. No credit card. Just a working demo.
-        </motion.p>
       </div>
     </section>
   );
