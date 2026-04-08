@@ -124,7 +124,7 @@ function TerminalCTA() {
       onClick={handleClick}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      className="group relative mx-auto flex cursor-pointer items-center gap-3 rounded-xl border border-border-leash bg-[#060d1b] px-6 py-4 font-mono text-sm transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_30px_#3b82f620]"
+      className="group relative mx-auto flex cursor-pointer items-center gap-3 rounded-xl border border-primary/40 bg-[#060d1b] px-6 py-4 font-mono text-sm shadow-[0_0_20px_#3b82f615,0_0_40px_#3b82f610] transition-all duration-300 hover:border-primary hover:shadow-[0_0_30px_#3b82f630,0_0_60px_#3b82f618]"
     >
       {/* Terminal prompt */}
       <span className="select-none text-success">$</span>
