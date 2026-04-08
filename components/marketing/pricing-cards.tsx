@@ -90,10 +90,10 @@ export function PricingCards() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mb-16 text-center"
         >
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
+          <h2 className="mb-4 text-4xl font-bold tracking-tight text-text-primary md:text-5xl">
             Simple, predictable pricing
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-text-secondary">
+          <p className="mx-auto max-w-2xl text-base text-text-tertiary">
             Start free, scale when you&apos;re ready. Every plan includes the
             full Leash SDK and dashboard.
           </p>
@@ -112,21 +112,19 @@ export function PricingCards() {
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
               whileHover={{
-                y: -4,
-                boxShadow: tier.popular
-                  ? "0 0 32px #3b82f633"
-                  : "0 8px 32px rgba(0,0,0,0.3)",
+                y: -2,
+                boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
               }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              className={`relative flex flex-col rounded-lg border p-8 ${
+              className={`relative flex flex-col rounded-xl border p-8 ${
                 tier.popular
-                  ? "border-primary bg-surface"
-                  : "border-border-leash bg-surface"
+                  ? "border-primary bg-white"
+                  : "border-border-leash bg-white"
               }`}
             >
               {/* Popular badge */}
               {tier.popular && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-0.5 text-xs font-semibold text-primary-foreground">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-0.5 font-mono text-xs font-semibold text-primary-foreground">
                   Most popular
                 </span>
               )}
@@ -136,7 +134,7 @@ export function PricingCards() {
                   {tier.name}
                 </h3>
                 <div className="mb-2 flex items-baseline gap-1">
-                  <span className="text-4xl font-bold text-text-primary">
+                  <span className="text-5xl font-bold tracking-tight text-text-primary">
                     {tier.price}
                   </span>
                   <span className="text-sm text-text-muted">/month</span>
@@ -162,7 +160,7 @@ export function PricingCards() {
                 className={buttonVariants({
                   variant: tier.popular ? "default" : "outline",
                   className: `w-full ${
-                    tier.popular ? "glow-blue" : "border-border-leash"
+                    !tier.popular ? "border-border-leash" : ""
                   }`,
                 })}
               >

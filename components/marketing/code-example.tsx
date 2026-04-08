@@ -20,24 +20,24 @@ function highlightLine(line: string) {
   // Regex order matters — first match wins
   const rules: [RegExp, string][] = [
     // Comments
-    [/^(\/\/.*)/, "text-muted"],
+    [/^(\/\/.*)/, "text-slate-500"],
     // Strings (double, single, backtick)
-    [/("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'|`(?:[^`\\]|\\.)*`)/, "text-success"],
+    [/("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'|`(?:[^`\\]|\\.)*`)/, "text-emerald-400"],
     // Keywords
     [
       /\b(import|from|export|default|const|let|var|function|return|async|await|new|if|else|true|false|null|undefined|typeof|type|interface)\b/,
-      "text-primary",
+      "text-blue-400",
     ],
     // Types / capitalised identifiers
-    [/\b([A-Z][A-Za-z0-9_]*)\b/, "text-warning"],
+    [/\b([A-Z][A-Za-z0-9_]*)\b/, "text-amber-300"],
     // Properties after dot or object keys before colon
-    [/([a-zA-Z_]\w*)(?=\s*:)/, "text-info"],
+    [/([a-zA-Z_]\w*)(?=\s*:)/, "text-cyan-300"],
     // Numbers
-    [/\b(\d+)\b/, "text-warning"],
+    [/\b(\d+)\b/, "text-amber-300"],
     // Punctuation
-    [/([{}()[\];,.:=<>+\-*/?&|!@#$%^~]+)/, "text-text-tertiary"],
+    [/([{}()[\];,.:=<>+\-*/?&|!@#$%^~]+)/, "text-slate-400"],
     // Identifiers (default)
-    [/([a-zA-Z_]\w*)/, "text-text-primary"],
+    [/([a-zA-Z_]\w*)/, "text-slate-200"],
     // Whitespace
     [/(\s+)/, ""],
   ];
@@ -61,7 +61,7 @@ function highlightLine(line: string) {
 
     if (!matched) {
       // Consume one char as plain text
-      tokens.push({ text: remaining[0], className: "text-text-primary" });
+      tokens.push({ text: remaining[0], className: "text-slate-200" });
       remaining = remaining.slice(1);
     }
   }
@@ -81,9 +81,9 @@ export function CodeExample({ code, language, filename }: CodeExampleProps) {
   };
 
   return (
-    <div className="group relative overflow-hidden rounded-lg border border-border-leash bg-[#060d1b] animate-shimmer">
+    <div className="group relative overflow-hidden rounded-lg border border-slate-700 bg-[#1e293b] shadow-lg">
       {/* Title bar */}
-      <div className="flex items-center justify-between border-b border-border-leash px-4 py-2.5">
+      <div className="flex items-center justify-between border-b border-slate-600 px-4 py-2.5">
         <div className="flex items-center gap-3">
           {/* macOS dots */}
           <div className="flex gap-1.5">
@@ -91,13 +91,13 @@ export function CodeExample({ code, language, filename }: CodeExampleProps) {
             <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
             <span className="h-3 w-3 rounded-full bg-[#28c840]" />
           </div>
-          <span className="text-xs text-text-muted">{filename}</span>
+          <span className="text-xs text-slate-400">{filename}</span>
         </div>
 
         {/* Copy button */}
         <button
           onClick={handleCopy}
-          className="flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-text-muted transition-colors hover:bg-surface hover:text-text-secondary"
+          className="flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-slate-400 transition-colors hover:bg-slate-700 hover:text-slate-300"
           aria-label="Copy code"
         >
           {copied ? (
@@ -115,7 +115,7 @@ export function CodeExample({ code, language, filename }: CodeExampleProps) {
           <code>
             {lines.map((line, lineIdx) => (
               <div key={lineIdx} className="flex">
-                <span className="mr-6 inline-block w-6 select-none text-right text-text-muted">
+                <span className="mr-6 inline-block w-6 select-none text-right text-slate-500">
                   {lineIdx + 1}
                 </span>
                 <span>

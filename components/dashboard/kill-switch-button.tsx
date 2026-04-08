@@ -56,7 +56,7 @@ export function KillSwitchButton({
             variant="outline"
             disabled={disabled}
             onClick={() => setConfirming(true)}
-            className="gap-2 border-danger/40 text-danger hover:bg-danger/10 hover:text-danger"
+            className="gap-2 border-red-300 text-red-600 hover:bg-red-50 hover:text-red-600"
           >
             <XCircle className="h-4 w-4" />
             Kill switch

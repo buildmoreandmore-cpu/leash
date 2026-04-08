@@ -37,7 +37,7 @@ export function Problem() {
                 duration: 0.7,
                 ease: customEase,
               }}
-              className="mb-5 text-base leading-relaxed text-text-secondary last:mb-0"
+              className="mb-5 text-base leading-relaxed text-text-tertiary last:mb-0"
             >
               {text}
             </motion.p>
@@ -60,17 +60,17 @@ export function Problem() {
             >
               <defs>
                 <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.15" />
-                  <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.05" />
+                  <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.08" />
+                  <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.03" />
                 </linearGradient>
               </defs>
               <motion.path
                 d="M100 10 L185 50 L185 130 Q185 200 100 230 Q15 200 15 130 L15 50 Z"
                 fill="url(#shieldGrad)"
-                stroke="#1e3558"
+                stroke="#cbd5e1"
                 strokeWidth="1.5"
                 animate={{
-                  stroke: ["#1e3558", "#3b82f6", "#1e3558"],
+                  stroke: ["#cbd5e1", "#3b82f6", "#cbd5e1"],
                 }}
                 transition={{
                   duration: 3,
@@ -82,28 +82,20 @@ export function Problem() {
 
             {/* Agent dot 1 — safe (blue) */}
             <motion.div
-              className="absolute left-[30%] top-[35%] h-4 w-4 rounded-full bg-primary"
+              className="absolute left-[30%] top-[35%] h-3 w-3 rounded-full bg-primary"
               animate={{
-                scale: [1, 1.15, 1],
-                boxShadow: [
-                  "0 0 8px #3b82f666",
-                  "0 0 16px #3b82f699",
-                  "0 0 8px #3b82f666",
-                ],
+                scale: [1, 1.1, 1],
+                opacity: [0.7, 1, 0.7],
               }}
               transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
             />
 
             {/* Agent dot 2 — safe (green) */}
             <motion.div
-              className="absolute left-[55%] top-[50%] h-4 w-4 rounded-full bg-success"
+              className="absolute left-[55%] top-[50%] h-3 w-3 rounded-full bg-success"
               animate={{
                 scale: [1, 1.1, 1],
-                boxShadow: [
-                  "0 0 8px #10b98166",
-                  "0 0 16px #10b98199",
-                  "0 0 8px #10b98166",
-                ],
+                opacity: [0.7, 1, 0.7],
               }}
               transition={{
                 duration: 2.8,
@@ -115,14 +107,10 @@ export function Problem() {
 
             {/* Agent dot 3 — rogue (red) */}
             <motion.div
-              className="absolute left-[45%] top-[68%] h-5 w-5 rounded-full bg-danger"
+              className="absolute left-[45%] top-[68%] h-3.5 w-3.5 rounded-full bg-danger"
               animate={{
-                scale: [1, 1.3, 1],
-                boxShadow: [
-                  "0 0 12px #ef444466",
-                  "0 0 28px #ef4444bb",
-                  "0 0 12px #ef444466",
-                ],
+                scale: [1, 1.2, 1],
+                opacity: [0.8, 1, 0.8],
               }}
               transition={{
                 duration: 1.4,

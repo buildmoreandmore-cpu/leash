@@ -51,10 +51,10 @@ const actionIcons: Record<string, React.ReactNode> = {
 };
 
 const decisionColors: Record<ActionDecision, string> = {
-  allow: "bg-success/10 text-success",
-  warn: "bg-warning/10 text-warning",
-  deny: "bg-danger/10 text-danger",
-  killed: "bg-danger/20 text-danger",
+  allow: "bg-emerald-50 text-emerald-700",
+  warn: "bg-amber-50 text-amber-700",
+  deny: "bg-red-50 text-red-700",
+  killed: "bg-red-100 text-red-700",
 };
 
 // ---------------------------------------------------------------------------
@@ -71,20 +71,20 @@ const taskButtons: {
     title: "Refactor auth module",
     icon: <Shield className="h-4 w-4" />,
     bgClass:
-      "border-success/20 bg-success/5 text-success hover:bg-success/10",
+      "border-emerald-200 bg-emerald-50 text-emerald-700 hover:bg-emerald-100",
   },
   {
     key: "task2",
     title: "Add npm dependency",
     icon: <Package className="h-4 w-4" />,
     bgClass:
-      "border-warning/20 bg-warning/5 text-warning hover:bg-warning/10",
+      "border-amber-200 bg-amber-50 text-amber-700 hover:bg-amber-100",
   },
   {
     key: "task3",
     title: "Read production secrets",
     icon: <AlertTriangle className="h-4 w-4" />,
-    bgClass: "border-danger/20 bg-danger/5 text-danger hover:bg-danger/10",
+    bgClass: "border-red-200 bg-red-50 text-red-700 hover:bg-red-100",
   },
 ];
 
@@ -287,7 +287,7 @@ export function LiveDemo() {
 
       {/* Live activity stream */}
       <motion.div
-        className={`relative overflow-hidden rounded-xl border bg-background/50 ${
+        className={`relative overflow-hidden rounded-xl border bg-white ${
           flashRed
             ? "border-danger shadow-[0_0_24px_rgba(239,68,68,0.3)]"
             : activeBorder
@@ -319,7 +319,7 @@ export function LiveDemo() {
         />
 
         {/* Header */}
-        <div className="flex items-center gap-2 border-b border-border-leash/50 px-4 py-2.5">
+        <div className="flex items-center gap-2 border-b border-border-leash px-4 py-2.5">
           <span className="relative flex h-2 w-2">
             {isRunning && (
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
@@ -335,7 +335,7 @@ export function LiveDemo() {
             <motion.span
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="ml-auto flex items-center gap-1 rounded-full bg-danger/20 px-2 py-0.5 text-xs font-bold text-danger"
+              className="ml-auto flex items-center gap-1 rounded-full bg-red-100 px-2 py-0.5 text-xs font-bold text-red-700"
             >
               <Skull className="h-3 w-3" />
               AGENT KILLED
@@ -366,8 +366,8 @@ export function LiveDemo() {
                     }}
                     className={`flex items-start gap-3 rounded-lg px-3 py-2 text-xs ${
                       entry.isAnomaly
-                        ? "border border-danger/30 bg-danger/5"
-                        : "bg-surface/30"
+                        ? "border border-red-200 bg-red-50"
+                        : "bg-slate-50/50"
                     }`}
                   >
                     {/* Timestamp */}

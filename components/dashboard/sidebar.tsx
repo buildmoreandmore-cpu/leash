@@ -3,13 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  Shield,
   LayoutDashboard,
   Bot,
   ScrollText,
   ShieldCheck,
   Settings,
 } from "lucide-react";
+import { Logo } from "@/components/logo";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -29,13 +29,10 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="flex h-full w-60 shrink-0 flex-col border-r border-border-leash bg-surface">
+    <aside className="flex h-full w-60 shrink-0 flex-col border-r border-border-leash bg-white">
       {/* Logo */}
-      <div className="flex h-14 items-center gap-2 px-5">
-        <Shield className="h-5 w-5 text-primary" />
-        <span className="text-lg font-bold tracking-tight text-text-primary">
-          Leash
-        </span>
+      <div className="flex h-14 items-center px-5">
+        <Logo size="md" animated={false} />
       </div>
 
       {/* Nav items */}
@@ -63,7 +60,7 @@ export function Sidebar() {
       </nav>
 
       {/* Bottom: plan card */}
-      <div className="m-3 rounded-lg border border-border-leash bg-background/50 p-3">
+      <div className="m-3 rounded-lg border border-border-leash bg-primary/5 p-3">
         <p className="text-xs font-medium text-text-primary">Hobby Plan</p>
         <p className="mt-0.5 text-xs text-text-muted">1 of 1 agents used</p>
         <Link

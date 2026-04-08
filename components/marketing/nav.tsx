@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Shield, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { Logo } from "@/components/logo";
 import { buttonVariants } from "@/components/ui/button";
 
 const navLinks = [
@@ -57,7 +58,7 @@ export function Nav() {
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-surface/80 backdrop-blur-xl border-b border-border-leash"
+          ? "bg-white/80 backdrop-blur-xl border-b border-border-leash shadow-sm"
           : "bg-transparent"
       }`}
     >
@@ -69,11 +70,8 @@ export function Nav() {
           initial="hidden"
           animate="visible"
         >
-          <Link href="/" className="flex items-center gap-2">
-            <Shield className="h-5 w-5 text-primary" />
-            <span className="text-lg font-bold tracking-tight text-text-primary">
-              Leash
-            </span>
+          <Link href="/" className="flex items-center">
+            <Logo size="md" animated={false} />
           </Link>
         </motion.div>
 
@@ -150,7 +148,7 @@ export function Nav() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden border-b border-border-leash bg-surface/95 backdrop-blur-xl md:hidden"
+            className="overflow-hidden border-b border-border-leash bg-white/95 backdrop-blur-xl md:hidden"
           >
             <div className="flex flex-col gap-4 px-6 py-6">
               {navLinks.map((link, i) => (

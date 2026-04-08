@@ -1,5 +1,7 @@
+"use client";
+
 import Link from "next/link";
-import { Shield } from "lucide-react";
+import { Logo } from "@/components/logo";
 
 const columns = [
   {
@@ -31,18 +33,15 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border-leash px-6 py-16">
+    <footer className="border-t border-border-leash bg-white px-6 py-16">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <Link href="/" className="mb-3 flex items-center gap-2">
-              <Shield className="h-5 w-5 text-primary" />
-              <span className="text-lg font-bold tracking-tight text-text-primary">
-                Leash
-              </span>
+            <Link href="/" className="mb-3 flex items-center">
+              <Logo size="sm" animated={false} />
             </Link>
-            <p className="text-sm leading-relaxed text-text-muted">
+            <p className="text-sm leading-relaxed text-text-tertiary">
               Identity for the agent workforce.
             </p>
           </div>
@@ -58,7 +57,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-text-muted transition-colors hover:text-text-secondary"
+                      className="text-sm text-text-secondary transition-colors hover:text-text-primary"
                     >
                       {link.label}
                     </Link>
@@ -71,7 +70,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-border-leash pt-8">
-          <p className="text-center text-sm text-text-muted">
+          <p className="text-center text-sm text-text-tertiary">
             &copy; 2026 Leash. Identity for the agent workforce.
           </p>
         </div>

@@ -78,7 +78,7 @@ export default function AboutPage() {
               className="mb-16"
             >
               <div className="flex items-start gap-6">
-                <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full border border-border-leash bg-surface">
+                <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full border border-border-leash bg-slate-50">
                   <User className="h-8 w-8 text-text-muted" />
                 </div>
                 <div>

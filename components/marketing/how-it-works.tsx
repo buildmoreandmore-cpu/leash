@@ -65,7 +65,7 @@ export function HowItWorks() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mb-16 text-center"
         >
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
+          <h2 className="mb-4 text-4xl font-bold tracking-tight text-text-primary md:text-5xl">
             Three lines of code. Complete control.
           </h2>
         </motion.div>
@@ -88,14 +88,14 @@ export function HowItWorks() {
                 }}
                 className="flex gap-5"
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 font-mono text-sm text-primary">
                   {step.num}
                 </div>
                 <div>
                   <h3 className="mb-1.5 text-xl font-semibold text-text-primary">
                     {step.title}
                   </h3>
-                  <p className="text-base leading-relaxed text-text-secondary">
+                  <p className="text-sm leading-relaxed text-text-tertiary">
                     {step.description}
                   </p>
                 </div>

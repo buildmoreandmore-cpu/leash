@@ -81,10 +81,10 @@ export function Features() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mb-16 text-center"
         >
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
+          <h2 className="mb-4 text-4xl font-bold tracking-tight text-text-primary md:text-5xl">
             Everything you need to govern your AI agents
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-text-secondary">
+          <p className="mx-auto max-w-2xl text-base text-text-tertiary">
             From registration to revocation, Leash gives you complete visibility
             and control over every agent in your stack.
           </p>
@@ -106,11 +106,10 @@ export function Features() {
                 animate={inView ? "visible" : "hidden"}
                 whileHover={{
                   y: -2,
-                  borderColor: "var(--color-border-strong)",
-                  boxShadow: "0 0 16px #3b82f622",
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
                 }}
                 transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                className="rounded-lg border border-border-leash bg-surface p-6 transition-colors"
+                className="rounded-xl border border-border-leash bg-white p-8"
               >
                 <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
                   <Icon className="h-5 w-5 text-primary" />
@@ -118,7 +117,7 @@ export function Features() {
                 <h3 className="mb-2 text-lg font-semibold text-text-primary">
                   {feature.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-text-secondary">
+                <p className="text-sm leading-relaxed text-text-tertiary">
                   {feature.description}
                 </p>
               </motion.div>

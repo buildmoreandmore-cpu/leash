@@ -63,8 +63,8 @@ export default function DocsPage() {
                   href={`#${item.id}`}
                   className={`rounded-md px-3 py-2 text-sm transition-colors ${
                     activeSection === item.id
-                      ? "bg-primary/10 font-medium text-primary"
-                      : "text-text-muted hover:text-text-secondary"
+                      ? "bg-blue-50 font-medium text-primary"
+                      : "text-text-muted hover:bg-slate-50 hover:text-text-secondary"
                   }`}
                 >
                   {item.label}
@@ -81,7 +81,7 @@ export default function DocsPage() {
             className="min-w-0 flex-1 lg:pl-12"
           >
             {/* Preview banner */}
-            <div className="mb-10 rounded-lg border border-primary/20 bg-primary/10 p-4">
+            <div className="mb-10 rounded-lg border border-blue-200 bg-blue-50 p-4">
               <p className="text-sm text-text-secondary">
                 Full docs launching with v1. This is a preview.
               </p>
@@ -100,8 +100,8 @@ export default function DocsPage() {
               >
                 Installation
               </h2>
-              <div className="mb-8 overflow-hidden rounded-lg border border-border-leash bg-[#060d1b]">
-                <pre className="p-4 font-mono text-sm text-text-primary">
+              <div className="mb-8 overflow-hidden rounded-lg border border-slate-700 bg-slate-900">
+                <pre className="p-4 font-mono text-sm text-slate-100">
                   <code>npm install @leash/sdk</code>
                 </pre>
               </div>
@@ -134,7 +134,7 @@ export default function DocsPage() {
                     Import and initialize.
                   </strong>{" "}
                   The SDK exports a single{" "}
-                  <code className="rounded bg-surface px-1.5 py-0.5 font-mono text-sm text-primary">
+                  <code className="rounded bg-blue-50 px-1.5 py-0.5 font-mono text-sm text-primary">
                     Leash
                   </code>{" "}
                   class. Pass your API key (from the dashboard) to create a
@@ -144,7 +144,7 @@ export default function DocsPage() {
                   <strong className="text-text-primary">
                     Register the agent.
                   </strong>{" "}
-                  <code className="rounded bg-surface px-1.5 py-0.5 font-mono text-sm text-primary">
+                  <code className="rounded bg-blue-50 px-1.5 py-0.5 font-mono text-sm text-primary">
                     leash.agents.register()
                   </code>{" "}
                   creates a named agent identity with a human owner and a
@@ -155,15 +155,15 @@ export default function DocsPage() {
                   <strong className="text-text-primary">
                     Start a session.
                   </strong>{" "}
-                  <code className="rounded bg-surface px-1.5 py-0.5 font-mono text-sm text-primary">
+                  <code className="rounded bg-blue-50 px-1.5 py-0.5 font-mono text-sm text-primary">
                     leash.sessions.start()
                   </code>{" "}
                   issues a time-bound JWT for the agent. The{" "}
-                  <code className="rounded bg-surface px-1.5 py-0.5 font-mono text-sm text-primary">
+                  <code className="rounded bg-blue-50 px-1.5 py-0.5 font-mono text-sm text-primary">
                     ttl
                   </code>{" "}
                   controls how long the session lasts, and{" "}
-                  <code className="rounded bg-surface px-1.5 py-0.5 font-mono text-sm text-primary">
+                  <code className="rounded bg-blue-50 px-1.5 py-0.5 font-mono text-sm text-primary">
                     approvalPolicy
                   </code>{" "}
                   determines whether actions require human sign-off.
@@ -171,7 +171,7 @@ export default function DocsPage() {
                 <p>
                   <strong className="text-text-primary">Log an action.</strong>{" "}
                   Every call to{" "}
-                  <code className="rounded bg-surface px-1.5 py-0.5 font-mono text-sm text-primary">
+                  <code className="rounded bg-blue-50 px-1.5 py-0.5 font-mono text-sm text-primary">
                     session.action()
                   </code>{" "}
                   is intercepted by Leash, checked against the agent&apos;s

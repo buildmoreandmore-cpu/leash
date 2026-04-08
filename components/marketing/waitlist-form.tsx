@@ -26,7 +26,7 @@ export function WaitlistForm() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-4 text-3xl font-bold tracking-tight text-text-primary md:text-4xl"
+          className="mb-4 text-4xl font-bold tracking-tight text-text-primary md:text-5xl"
         >
           Be first on the leash.
         </motion.h2>
@@ -40,7 +40,7 @@ export function WaitlistForm() {
             duration: 0.7,
             ease: customEase,
           }}
-          className="mb-10 text-lg text-text-secondary"
+          className="mb-10 text-base text-text-tertiary"
         >
           Early access opens next month. Founding customers get six months free
           and direct access to the roadmap.
@@ -63,12 +63,12 @@ export function WaitlistForm() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="h-11 flex-1 bg-surface border-border-leash text-text-primary placeholder:text-text-muted"
+                className="h-11 flex-1 rounded-lg border border-border-leash bg-white text-text-primary placeholder:text-text-muted"
               />
               <Button
                 type="submit"
                 size="lg"
-                className="h-11 shrink-0 px-6 glow-blue"
+                className="h-11 shrink-0 rounded-lg bg-text-primary px-6 text-white hover:bg-text-secondary"
               >
                 Join waitlist
               </Button>

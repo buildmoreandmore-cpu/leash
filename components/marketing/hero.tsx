@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button";
 
 const customEase = [0.16, 1, 0.3, 1] as const;
 
@@ -22,34 +21,13 @@ export function Hero() {
   return (
     <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden px-6 py-24">
       {/* Animated gradient orb */}
-      <motion.div
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[120px]"
-        animate={{
-          scale: [1, 1.15, 1],
-          opacity: [0.4, 0.7, 0.4],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/3 blur-[200px]"
       />
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
-        {/* Pill badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 16, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-8 inline-flex"
-        >
-          <span className="inline-flex items-center rounded-full border border-border-leash bg-surface px-4 py-1.5 text-sm text-text-secondary animate-border-pulse">
-            Agent identity and access control, purpose-built for developers
-          </span>
-        </motion.div>
-
         {/* Headline — word-by-word stagger */}
-        <h1 className="mb-6 text-5xl font-bold leading-[1.1] tracking-tight text-text-primary md:text-7xl">
+        <h1 className="mb-6 text-6xl font-bold leading-[1.05] tracking-[-0.03em] text-text-primary md:text-8xl">
           {words.map((word, i) => (
             <motion.span
               key={i}
@@ -76,7 +54,7 @@ export function Hero() {
             duration: 0.8,
             ease: customEase,
           }}
-          className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-text-secondary md:text-xl"
+          className="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-text-tertiary"
         >
           Leash is drop-in governance for the AI agent workforce. Register every
           agent, scope what it can touch, watch what it does, and kill it mid-run
@@ -98,23 +76,15 @@ export function Hero() {
         >
           <Link
             href="/dashboard"
-            className={buttonVariants({
-              size: "lg",
-              className:
-                "h-12 px-6 text-base glow-blue transition-shadow hover:shadow-[0_0_24px_#3b82f666,0_0_48px_#3b82f633]",
-            })}
+            className="inline-flex h-12 items-center justify-center rounded-lg bg-text-primary px-6 text-base font-semibold text-white transition-colors hover:bg-text-secondary"
           >
             Start free with an API key
           </Link>
           <a
             href="#demo-teaser"
-            className={buttonVariants({
-              variant: "outline",
-              size: "lg",
-              className: "h-12 px-6 text-base border-border-leash",
-            })}
+            className="inline-flex h-12 items-center justify-center px-2 text-base font-medium text-text-secondary transition-colors hover:text-text-primary"
           >
-            See live demo
+            See live demo &rarr;
           </a>
         </motion.div>
 
@@ -130,7 +100,7 @@ export function Hero() {
                 duration: 0.6,
                 ease: customEase,
               }}
-              className="rounded-full border border-border-leash px-4 py-1.5 text-sm text-text-secondary"
+              className="rounded-md bg-slate-100 px-3 py-1.5 font-mono text-xs text-text-tertiary"
             >
               {name}
             </motion.span>
