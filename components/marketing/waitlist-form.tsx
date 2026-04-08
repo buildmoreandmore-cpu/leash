@@ -28,7 +28,7 @@ export function WaitlistForm() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mb-4 text-4xl font-bold tracking-tight text-text-primary md:text-5xl"
         >
-          Be first on the leash.
+          Get early access.
         </motion.h2>
 
         <motion.p
@@ -42,8 +42,8 @@ export function WaitlistForm() {
           }}
           className="mb-10 text-base text-text-tertiary"
         >
-          Early access opens next month. Founding customers get six months free
-          and direct access to the roadmap.
+          Founding customers get six months free and a direct line to the
+          roadmap. Put your agents on a leash before they put you on notice.
         </motion.p>
 
         <AnimatePresence mode="wait">

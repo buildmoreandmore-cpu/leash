@@ -5,7 +5,6 @@ import { Problem } from "@/components/marketing/problem";
 import { Features } from "@/components/marketing/features";
 import { HowItWorks } from "@/components/marketing/how-it-works";
 import { DemoTeaser } from "@/components/marketing/demo-teaser";
-import { PricingCards } from "@/components/marketing/pricing-cards";
 import { WaitlistForm } from "@/components/marketing/waitlist-form";
 import { Footer } from "@/components/marketing/footer";
 
@@ -20,7 +19,6 @@ export default function Home() {
         <Features />
         <HowItWorks />
         <DemoTeaser />
-        <PricingCards />
         <WaitlistForm />
       </main>
       <Footer />
