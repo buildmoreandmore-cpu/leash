@@ -198,18 +198,6 @@ export function Hero() {
             />
             <span className="relative">Try the live demo</span>
           </Link>
-          <a
-            href="#demo-teaser"
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-border-leash px-6 text-base font-medium text-text-secondary transition-all duration-300 hover:text-text-primary hover:bg-surface-hover hover:border-border-strong"
-          >
-            See how it works
-            <motion.span
-              animate={{ x: [0, 4, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            >
-              &rarr;
-            </motion.span>
-          </a>
         </motion.div>
 
         {/* Integration pills with icons */}
