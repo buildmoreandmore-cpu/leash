@@ -197,9 +197,9 @@ function ScenarioIndicator({
   activeIndex: number;
 }) {
   return (
-    <div className="flex items-center gap-3 px-4 py-2">
+    <div className="flex items-center gap-2 px-2 py-2 sm:gap-3 sm:px-4">
       {items.map((s, i) => (
-        <div key={s.id} className="flex items-center gap-2">
+        <div key={s.id} className="flex items-center gap-1.5 sm:gap-2">
           <div
             className={`h-2 w-2 rounded-full transition-colors duration-300 ${
               i === activeIndex
@@ -212,14 +212,14 @@ function ScenarioIndicator({
             }`}
           />
           <span
-            className={`font-mono text-xs transition-colors duration-300 ${
+            className={`hidden font-mono text-xs transition-colors duration-300 sm:inline ${
               i === activeIndex ? "text-text-secondary" : "text-text-muted/50"
             }`}
           >
             {s.title}
           </span>
           {i < items.length - 1 && (
-            <span className="text-text-muted/20 mx-1">/</span>
+            <span className="text-text-muted/20 mx-0.5 hidden sm:inline sm:mx-1">/</span>
           )}
         </div>
       ))}
@@ -375,7 +375,7 @@ export function InlineDemo() {
   );
 
   return (
-    <section ref={sectionRef} id="demo" className="px-6 py-24">
+    <section ref={sectionRef} id="demo" className="px-4 py-16 sm:px-6 md:py-24">
       <div className="mx-auto max-w-5xl">
         {/* Section header */}
         <motion.div
@@ -383,12 +383,12 @@ export function InlineDemo() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.8, ease: customEase }}
-          className="mb-14 text-center"
+          className="mb-8 text-center sm:mb-14"
         >
-          <h2 className="mb-4 text-4xl font-bold tracking-tight text-text-primary md:text-5xl">
+          <h2 className="mb-4 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl md:text-5xl">
             See it in action
           </h2>
-          <p className="mx-auto max-w-2xl text-base text-text-tertiary md:text-lg">
+          <p className="mx-auto max-w-2xl text-sm text-text-tertiary sm:text-base md:text-lg">
             Watch Leash govern an agent through three real scenarios &mdash; a
             clean run, an approval gate, and a kill switch.
           </p>
@@ -407,12 +407,12 @@ export function InlineDemo() {
           }`}
         >
           {/* Window chrome */}
-          <div className="flex items-center justify-between border-b border-border-leash bg-[#0b1a2e] px-4 py-3">
+          <div className="flex items-center justify-between border-b border-border-leash bg-[#0b1a2e] px-3 py-2 sm:px-4 sm:py-3">
             <div className="flex items-center gap-2">
-              <div className="h-3 w-3 rounded-full bg-[#ff5f57]" />
-              <div className="h-3 w-3 rounded-full bg-[#febc2e]" />
-              <div className="h-3 w-3 rounded-full bg-[#28c840]" />
-              <span className="ml-3 font-mono text-xs text-text-muted">
+              <div className="h-2.5 w-2.5 rounded-full bg-[#ff5f57] sm:h-3 sm:w-3" />
+              <div className="h-2.5 w-2.5 rounded-full bg-[#febc2e] sm:h-3 sm:w-3" />
+              <div className="h-2.5 w-2.5 rounded-full bg-[#28c840] sm:h-3 sm:w-3" />
+              <span className="ml-2 hidden font-mono text-xs text-text-muted sm:ml-3 sm:inline">
                 leash dashboard &mdash; refactor-bot
               </span>
             </div>
@@ -423,7 +423,7 @@ export function InlineDemo() {
           </div>
 
           {/* Two columns */}
-          <div className="flex min-h-[320px] flex-col md:flex-row">
+          <div className="flex min-h-[240px] flex-col sm:min-h-[320px] md:flex-row">
             {/* Left: Agent Activity (60%) */}
             <div
               className={`relative flex-[3] border-l-2 transition-colors duration-500 ${borderPulseColor}`}
@@ -453,16 +453,16 @@ export function InlineDemo() {
                 />
               )}
 
-              <div className="px-4 py-3">
-                <div className="mb-3 flex items-center gap-2">
+              <div className="px-3 py-2 sm:px-4 sm:py-3">
+                <div className="mb-2 flex items-center gap-2 sm:mb-3">
                   <div className="h-1.5 w-1.5 rounded-full bg-primary" />
-                  <span className="text-[11px] font-semibold uppercase tracking-widest text-text-muted">
+                  <span className="text-[10px] font-semibold uppercase tracking-widest text-text-muted sm:text-[11px]">
                     Agent Activity
                   </span>
                 </div>
 
                 {/* Log entries */}
-                <div className="space-y-0.5 font-mono text-[13px] leading-relaxed">
+                <div className="space-y-0.5 font-mono text-[11px] leading-relaxed sm:text-[13px]">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={scenario.id}
@@ -535,10 +535,10 @@ export function InlineDemo() {
 
             {/* Right: Governance (40%) */}
             <div className="flex-[2] border-t border-border-leash bg-[#0b1a2e]/50 md:border-t-0">
-              <div className="px-4 py-3">
-                <div className="mb-4 flex items-center gap-2">
+              <div className="px-3 py-2 sm:px-4 sm:py-3">
+                <div className="mb-3 flex items-center gap-2 sm:mb-4">
                   <div className="h-1.5 w-1.5 rounded-full bg-info" />
-                  <span className="text-[11px] font-semibold uppercase tracking-widest text-text-muted">
+                  <span className="text-[10px] font-semibold uppercase tracking-widest text-text-muted sm:text-[11px]">
                     Governance
                   </span>
                 </div>
@@ -623,9 +623,12 @@ export function InlineDemo() {
           </div>
 
           {/* Bottom status bar */}
-          <div className="flex items-center justify-between border-t border-border-leash bg-[#0b1a2e] px-4 py-2">
-            <span className="font-mono text-[11px] text-text-muted">
+          <div className="flex items-center justify-between border-t border-border-leash bg-[#0b1a2e] px-3 py-2 sm:px-4">
+            <span className="hidden font-mono text-[11px] text-text-muted sm:inline">
               agent:refactor-bot &bull; session:a3f8c2
+            </span>
+            <span className="font-mono text-[10px] text-text-muted sm:hidden">
+              refactor-bot
             </span>
             <div className="flex items-center gap-3">
               <span className="font-mono text-[11px] text-text-muted">

@@ -19,14 +19,14 @@ export function WaitlistForm() {
   };
 
   return (
-    <section className="px-6 py-24">
+    <section className="px-4 py-16 sm:px-6 md:py-24">
       <div className="mx-auto max-w-2xl text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-4 text-4xl font-bold tracking-tight text-text-primary md:text-5xl"
+          className="mb-4 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl md:text-5xl"
         >
           Get early access.
         </motion.h2>

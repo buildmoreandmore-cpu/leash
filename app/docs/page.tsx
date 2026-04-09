@@ -174,7 +174,7 @@ export default function ManifestoPage() {
       <Nav />
       <main className="flex-1">
         {/* Hero section */}
-        <div ref={heroRef} className="relative overflow-hidden px-6 py-32 md:py-40">
+        <div ref={heroRef} className="relative overflow-hidden px-4 py-20 sm:px-6 md:py-32 lg:py-40">
           {/* Background glow */}
           <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/8 blur-[120px]" />
 
@@ -194,7 +194,7 @@ export default function ManifestoPage() {
               initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.9, ease: customEase, delay: 0.1 }}
-              className="mb-6 text-5xl font-bold tracking-tight text-text-primary md:text-7xl"
+              className="mb-6 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl md:text-5xl lg:text-7xl"
             >
               Why Leash exists
             </motion.h1>
@@ -212,8 +212,8 @@ export default function ManifestoPage() {
         </div>
 
         {/* Sections */}
-        <div className="mx-auto max-w-4xl px-6 pb-32">
-          <div className="flex flex-col gap-20 md:gap-24">
+        <div className="mx-auto max-w-4xl px-4 pb-20 sm:px-6 md:pb-32">
+          <div className="flex flex-col gap-14 sm:gap-20 md:gap-24">
             {sections.map((section, i) => (
               <ManifestoSection key={section.id} section={section} index={i} />
             ))}
@@ -225,9 +225,9 @@ export default function ManifestoPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.8, ease: customEase }}
-            className="mt-24 border-t border-border-leash pt-16 text-center"
+            className="mt-16 border-t border-border-leash pt-10 text-center sm:mt-24 sm:pt-16"
           >
-            <p className="mx-auto max-w-lg text-xl font-medium leading-relaxed text-text-primary">
+            <p className="mx-auto max-w-lg text-lg font-medium leading-relaxed text-text-primary sm:text-xl">
               &ldquo;Give your AI agents the keys, not the kingdom.&rdquo;
             </p>
             <p className="mt-4 font-mono text-sm text-text-muted">

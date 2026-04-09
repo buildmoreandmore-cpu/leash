@@ -173,7 +173,7 @@ export default function DashboardOverviewPage() {
   return (
     <div className="space-y-6">
       {/* Metric cards */}
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         {metrics.map((m, i) => {
           const Icon = m.icon;
           return (
@@ -228,7 +228,7 @@ export default function DashboardOverviewPage() {
               </div>
               <span className="text-xs text-text-muted">Live</span>
             </div>
-            <div className="max-h-[520px] space-y-1 overflow-y-auto p-3">
+            <div className="max-h-[400px] space-y-1 overflow-y-auto p-2 sm:max-h-[520px] sm:p-3">
               {entries.map((entry, i) => (
                 <AuditRow
                   key={entry.id}

@@ -258,7 +258,7 @@ export default function AgentDetailPage({
             </div>
 
             {/* Pagination */}
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <span className="text-xs text-text-muted">
                 Page {activityPage + 1} of {totalActivityPages} (
                 {agentEntries.length} entries)

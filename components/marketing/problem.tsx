@@ -60,10 +60,10 @@ export function Problem() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="px-6 py-24">
+    <section className="px-4 py-16 sm:px-6 md:py-24">
       <div
         ref={ref}
-        className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-2 lg:items-center"
+        className="mx-auto grid max-w-7xl gap-10 sm:gap-16 lg:grid-cols-2 lg:items-center"
       >
         {/* Left — text */}
         <div>
@@ -71,7 +71,7 @@ export function Problem() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: customEase }}
-            className="mb-8 text-3xl font-bold leading-tight tracking-tight text-text-primary md:text-4xl"
+            className="mb-6 text-2xl font-bold leading-tight tracking-tight text-text-primary sm:mb-8 sm:text-3xl md:text-4xl"
           >
             Your AI agents have admin access and nobody&apos;s watching.
           </motion.h2>

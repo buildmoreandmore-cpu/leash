@@ -55,7 +55,7 @@ export function HowItWorks() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="px-6 py-24">
+    <section className="px-4 py-16 sm:px-6 md:py-24">
       <div className="mx-auto max-w-7xl">
         {/* Section header */}
         <motion.div
@@ -63,9 +63,9 @@ export function HowItWorks() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-16 text-center"
+          className="mb-10 text-center sm:mb-16"
         >
-          <h2 className="mb-4 text-4xl font-bold tracking-tight text-text-primary md:text-5xl">
+          <h2 className="mb-4 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl md:text-5xl">
             Three lines of code. Complete control.
           </h2>
         </motion.div>

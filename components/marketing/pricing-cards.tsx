@@ -80,7 +80,7 @@ export function PricingCards() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="pricing" className="px-6 py-24">
+    <section id="pricing" className="px-4 py-16 sm:px-6 md:py-24">
       <div className="mx-auto max-w-7xl">
         {/* Section header */}
         <motion.div
@@ -88,9 +88,9 @@ export function PricingCards() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-16 text-center"
+          className="mb-10 text-center sm:mb-16"
         >
-          <h2 className="mb-4 text-4xl font-bold tracking-tight text-text-primary md:text-5xl">
+          <h2 className="mb-4 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl md:text-5xl">
             Simple, predictable pricing
           </h2>
           <p className="mx-auto max-w-2xl text-base text-text-tertiary">
@@ -116,7 +116,7 @@ export function PricingCards() {
                 boxShadow: "0 0 16px #3b82f622",
               }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              className={`relative flex flex-col rounded-xl border p-8 ${
+              className={`relative flex flex-col rounded-xl border p-5 sm:p-8 ${
                 tier.popular
                   ? "border-primary bg-surface"
                   : "border-border-leash bg-surface"
@@ -134,7 +134,7 @@ export function PricingCards() {
                   {tier.name}
                 </h3>
                 <div className="mb-2 flex items-baseline gap-1">
-                  <span className="text-5xl font-bold tracking-tight text-text-primary">
+                  <span className="text-4xl font-bold tracking-tight text-text-primary sm:text-5xl">
                     {tier.price}
                   </span>
                   <span className="text-sm text-text-muted">/month</span>

@@ -156,8 +156,8 @@ export default function ApprovalsPage() {
                     transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     className="rounded-xl border border-border-leash bg-surface p-4"
                   >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
+                    <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                      <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                         <Bot className="h-4 w-4 text-text-muted" />
                         <span className="text-sm font-medium text-text-primary">
                           {item.agentName}
@@ -165,7 +165,7 @@ export default function ApprovalsPage() {
                         <span className="font-mono text-xs text-text-secondary">
                           {item.action}
                         </span>
-                        <span className="font-mono text-xs text-text-muted">
+                        <span className="hidden font-mono text-xs text-text-muted sm:inline">
                           {item.target}
                         </span>
                       </div>

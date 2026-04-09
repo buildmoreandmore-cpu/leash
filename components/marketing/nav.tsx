@@ -2,10 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
 import { Logo } from "@/components/logo";
-import { buttonVariants } from "@/components/ui/button";
 
 const navLinks = [
   { label: "Manifesto", href: "/docs" },
@@ -28,25 +26,12 @@ const navItemVariants = {
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  // Lock body scroll when mobile menu is open
-  useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [mobileOpen]);
 
   return (
     <motion.nav
@@ -59,7 +44,7 @@ export function Nav() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         {/* Logo */}
         <motion.div
           custom={0}
@@ -72,8 +57,8 @@ export function Nav() {
           </Link>
         </motion.div>
 
-        {/* Center links — desktop */}
-        <div className="hidden items-center gap-8 md:flex">
+        {/* Center link — visible on all sizes */}
+        <div className="flex items-center">
           {navLinks.map((link, i) => (
             <motion.div
               key={link.label}
@@ -93,61 +78,9 @@ export function Nav() {
         </div>
 
         {/* Spacer for layout balance */}
-        <div className="hidden w-20 md:block" />
-
-        {/* Mobile hamburger */}
-        <motion.button
-          custom={1}
-          variants={navItemVariants}
-          initial="hidden"
-          animate="visible"
-          className="flex items-center justify-center md:hidden"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-        >
-          {mobileOpen ? (
-            <X className="h-5 w-5 text-text-primary" />
-          ) : (
-            <Menu className="h-5 w-5 text-text-primary" />
-          )}
-        </motion.button>
+        <div className="w-20" />
       </div>
 
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden border-b border-border-leash bg-surface/95 backdrop-blur-xl md:hidden"
-          >
-            <div className="flex flex-col gap-4 px-6 py-6">
-              {navLinks.map((link, i) => (
-                <motion.div
-                  key={link.label}
-                  initial={{ opacity: 0, x: -12 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{
-                    delay: i * 0.06,
-                    duration: 0.4,
-                    ease: customEase,
-                  }}
-                >
-                  <Link
-                    href={link.href}
-                    className="block text-base text-text-secondary transition-colors hover:text-text-primary"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </motion.nav>
   );
 }

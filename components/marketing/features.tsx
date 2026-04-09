@@ -71,7 +71,7 @@ export function Features() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="features" className="px-6 py-24">
+    <section id="features" className="px-4 py-16 sm:px-6 md:py-24">
       <div className="mx-auto max-w-7xl">
         {/* Section header */}
         <motion.div
@@ -79,9 +79,9 @@ export function Features() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-16 text-center"
+          className="mb-10 text-center sm:mb-16"
         >
-          <h2 className="mb-4 text-4xl font-bold tracking-tight text-text-primary md:text-5xl">
+          <h2 className="mb-4 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl md:text-5xl">
             Everything you need to govern your AI agents
           </h2>
           <p className="mx-auto max-w-2xl text-base text-text-tertiary">
@@ -109,7 +109,7 @@ export function Features() {
                   boxShadow: "0 0 16px #3b82f622",
                 }}
                 transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                className="rounded-xl border border-border-leash bg-surface p-8"
+                className="rounded-xl border border-border-leash bg-surface p-5 sm:p-8"
               >
                 <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
                   <Icon className="h-5 w-5 text-primary" />

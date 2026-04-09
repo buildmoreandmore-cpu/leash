@@ -94,7 +94,7 @@ export default function AuditLogPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
           <ScrollText className="h-5 w-5 text-primary" />
           <h1 className="text-lg font-bold text-text-primary">Audit Log</h1>
@@ -116,7 +116,7 @@ export default function AuditLogPage() {
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
-        className="flex flex-wrap items-center gap-3"
+        className="flex flex-wrap items-center gap-2 sm:gap-3"
       >
         <Filter className="h-4 w-4 text-text-muted" />
         <select
@@ -166,16 +166,16 @@ export default function AuditLogPage() {
       </motion.div>
 
       {/* Table header */}
-      <div className="rounded-xl border border-border-leash bg-surface">
-        <div className="border-b border-border-leash bg-surface-hover px-4 py-2">
-          <div className="flex items-center gap-3 text-xs text-text-muted">
-            <span className="w-16 shrink-0">Time</span>
-            <span className="w-28 shrink-0">Agent</span>
-            <span className="w-16 shrink-0 text-center">Action</span>
+      <div className="overflow-x-auto rounded-xl border border-border-leash bg-surface">
+        <div className="min-w-[480px] border-b border-border-leash bg-surface-hover px-4 py-2">
+          <div className="flex items-center gap-2 text-xs text-text-muted sm:gap-3">
+            <span className="w-14 shrink-0 sm:w-16">Time</span>
+            <span className="w-24 shrink-0 sm:w-28">Agent</span>
+            <span className="w-14 shrink-0 text-center sm:w-16">Action</span>
             <span className="min-w-0 flex-1">Target</span>
-            <span className="hidden w-24 shrink-0 sm:block">Scope</span>
-            <span className="w-16 shrink-0 text-center">Decision</span>
-            <span className="w-10 shrink-0 text-right">Risk</span>
+            <span className="hidden w-24 shrink-0 md:block">Scope</span>
+            <span className="w-14 shrink-0 text-center sm:w-16">Decision</span>
+            <span className="w-8 shrink-0 text-right sm:w-10">Risk</span>
           </div>
         </div>
         <div className="space-y-1 p-3">
@@ -203,7 +203,7 @@ export default function AuditLogPage() {
       </div>
 
       {/* Pagination */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <span className="text-xs text-text-muted">
           Page {page + 1} of {totalPages} ({filtered.length} total entries)
         </span>

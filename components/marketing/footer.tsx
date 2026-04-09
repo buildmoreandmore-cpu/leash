@@ -5,7 +5,7 @@ import { Logo } from "@/components/logo";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border-leash bg-surface px-6 py-12">
+    <footer className="border-t border-border-leash bg-surface px-4 py-8 sm:px-6 sm:py-12">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <Link href="/" className="flex items-center">

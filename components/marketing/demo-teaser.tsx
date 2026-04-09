@@ -7,7 +7,7 @@ const customEase = [0.16, 1, 0.3, 1] as const;
 
 export function DemoTeaser() {
   return (
-    <section id="demo-teaser" className="relative overflow-hidden px-6 py-24">
+    <section id="demo-teaser" className="relative overflow-hidden px-4 py-16 sm:px-6 md:py-24">
       {/* Subtle gradient bg instead of flat blue */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-primary/10 to-transparent" />
 
@@ -17,7 +17,7 @@ export function DemoTeaser() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.8, ease: customEase }}
-          className="rounded-2xl border border-border-leash bg-surface p-12 md:p-16"
+          className="rounded-2xl border border-border-leash bg-surface p-6 sm:p-12 md:p-16"
         >
           <motion.div
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5"
@@ -30,7 +30,7 @@ export function DemoTeaser() {
             </span>
           </motion.div>
 
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
+          <h2 className="mb-4 text-2xl font-bold tracking-tight text-text-primary sm:text-3xl md:text-4xl">
             See the dashboard in action.
           </h2>
 

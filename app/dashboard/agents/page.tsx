@@ -66,7 +66,7 @@ export default function AgentsPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
           <Bot className="h-5 w-5 text-primary" />
           <h1 className="text-lg font-bold text-text-primary">Agents</h1>
@@ -134,7 +134,7 @@ export default function AgentsPage() {
 
       {/* Table */}
       <div className="overflow-x-auto rounded-xl border border-border-leash bg-surface">
-        <table className="w-full text-sm">
+        <table className="w-full min-w-[700px] text-sm">
           <thead>
             <tr className="border-b border-border-leash bg-surface-hover text-left text-xs text-text-muted">
               <th className="px-4 py-3 font-medium">Name</th>

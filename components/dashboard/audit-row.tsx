@@ -65,54 +65,56 @@ export function AuditRow({
   const actionStyle = actionBadgeStyles[action] ?? "bg-primary/10 text-primary";
 
   const content = (
-    <div className="flex items-center gap-3 rounded-lg border border-border-leash bg-surface px-3 py-2 text-sm transition-colors hover:bg-surface-hover">
-      {/* Timestamp */}
-      <span className="w-16 shrink-0 text-xs text-text-muted tabular-nums">
-        {relativeTime(timestamp)}
-      </span>
+    <div className="overflow-x-auto rounded-lg border border-border-leash bg-surface transition-colors hover:bg-surface-hover">
+      <div className="flex min-w-[480px] items-center gap-2 px-3 py-2 text-sm sm:gap-3">
+        {/* Timestamp */}
+        <span className="w-14 shrink-0 text-xs text-text-muted tabular-nums sm:w-16">
+          {relativeTime(timestamp)}
+        </span>
 
-      {/* Agent name */}
-      <span className="w-28 shrink-0 truncate text-xs font-medium text-text-secondary">
-        {agentName}
-      </span>
+        {/* Agent name */}
+        <span className="w-24 shrink-0 truncate text-xs font-medium text-text-secondary sm:w-28">
+          {agentName}
+        </span>
 
-      {/* Action badge */}
-      <span
-        className={`inline-flex w-16 shrink-0 items-center justify-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium ${actionStyle}`}
-      >
-        {actionIcons[action]}
-        {action}
-      </span>
+        {/* Action badge */}
+        <span
+          className={`inline-flex w-14 shrink-0 items-center justify-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium sm:w-16 ${actionStyle}`}
+        >
+          {actionIcons[action]}
+          {action}
+        </span>
 
-      {/* Target */}
-      <span className="min-w-0 flex-1 truncate font-mono text-xs text-text-primary">
-        {target}
-      </span>
+        {/* Target */}
+        <span className="min-w-0 flex-1 truncate font-mono text-xs text-text-primary">
+          {target}
+        </span>
 
-      {/* Scope */}
-      <div className="hidden shrink-0 sm:block">
-        <ScopeBadge scope={scope} />
+        {/* Scope */}
+        <div className="hidden shrink-0 md:block">
+          <ScopeBadge scope={scope} />
+        </div>
+
+        {/* Decision */}
+        <span
+          className={`inline-flex w-14 shrink-0 items-center justify-center rounded-full px-2 py-0.5 text-xs font-medium sm:w-16 ${ds.bg} ${ds.text} ${ds.pulse ? "animate-pulse" : ""}`}
+        >
+          {decision}
+        </span>
+
+        {/* Risk delta */}
+        <span
+          className={`w-8 shrink-0 text-right text-xs font-mono tabular-nums sm:w-10 ${
+            riskDelta > 0
+              ? "text-danger"
+              : riskDelta < 0
+                ? "text-success"
+                : "text-text-muted"
+          }`}
+        >
+          {riskDelta > 0 ? `+${riskDelta}` : riskDelta === 0 ? "0" : riskDelta}
+        </span>
       </div>
-
-      {/* Decision */}
-      <span
-        className={`inline-flex w-16 shrink-0 items-center justify-center rounded-full px-2 py-0.5 text-xs font-medium ${ds.bg} ${ds.text} ${ds.pulse ? "animate-pulse" : ""}`}
-      >
-        {decision}
-      </span>
-
-      {/* Risk delta */}
-      <span
-        className={`w-10 shrink-0 text-right text-xs font-mono tabular-nums ${
-          riskDelta > 0
-            ? "text-danger"
-            : riskDelta < 0
-              ? "text-success"
-              : "text-text-muted"
-        }`}
-      >
-        {riskDelta > 0 ? `+${riskDelta}` : riskDelta === 0 ? "0" : riskDelta}
-      </span>
     </div>
   );
 

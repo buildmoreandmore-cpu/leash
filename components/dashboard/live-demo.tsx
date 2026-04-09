@@ -271,7 +271,7 @@ export function LiveDemo() {
       </div>
 
       {/* Task buttons */}
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-3 sm:gap-3">
         {taskButtons.map((tb) => (
           <button
             key={tb.key}
@@ -364,7 +364,7 @@ export function LiveDemo() {
                       duration: 0.3,
                       ease: [0.16, 1, 0.3, 1],
                     }}
-                    className={`flex items-start gap-3 rounded-lg px-3 py-2 text-xs ${
+                    className={`flex items-start gap-2 rounded-lg px-2 py-1.5 text-[11px] sm:gap-3 sm:px-3 sm:py-2 sm:text-xs ${
                       entry.isAnomaly
                         ? "border border-danger/30 bg-danger/10"
                         : "bg-surface-hover/50"
@@ -426,7 +426,7 @@ export function LiveDemo() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.15, duration: 0.3 }}
-                  className={`ml-[4.5rem] rounded px-2 py-1 text-xs italic ${
+                  className={`ml-12 rounded px-2 py-1 text-xs italic sm:ml-[4.5rem] ${
                     stream[stream.length - 1].isAnomaly
                       ? "text-danger"
                       : stream[stream.length - 1].decision === "warn"

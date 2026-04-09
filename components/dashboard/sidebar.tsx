@@ -8,6 +8,7 @@ import {
   ScrollText,
   ShieldCheck,
   Settings,
+  X,
 } from "lucide-react";
 import { Logo } from "@/components/logo";
 import { cn } from "@/lib/utils";
@@ -25,15 +26,29 @@ function isActive(pathname: string, href: string): boolean {
   return pathname.startsWith(href);
 }
 
-export function Sidebar() {
+interface SidebarProps {
+  mobileOpen?: boolean;
+  onClose?: () => void;
+}
+
+export function Sidebar({ mobileOpen = false, onClose }: SidebarProps) {
   const pathname = usePathname();
 
-  return (
+  const sidebarContent = (
     <aside className="flex h-full w-60 shrink-0 flex-col border-r border-border-leash bg-surface">
-      {/* Logo */}
-      <Link href="/" className="flex h-14 items-center px-5">
-        <Logo size="md" animated={false} />
-      </Link>
+      {/* Logo + close button on mobile */}
+      <div className="flex h-14 items-center justify-between px-5">
+        <Link href="/" onClick={onClose}>
+          <Logo size="md" animated={false} />
+        </Link>
+        <button
+          onClick={onClose}
+          className="flex h-8 w-8 items-center justify-center rounded-lg transition-colors hover:bg-surface-hover lg:hidden"
+          aria-label="Close sidebar"
+        >
+          <X className="h-4 w-4 text-text-secondary" />
+        </button>
+      </div>
 
       {/* Nav items */}
       <nav className="mt-2 flex flex-1 flex-col gap-0.5 px-3">
@@ -45,6 +60,7 @@ export function Sidebar() {
             <Link
               key={item.href}
               href={item.href}
+              onClick={onClose}
               className={cn(
                 "flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors duration-200",
                 active
@@ -65,11 +81,34 @@ export function Sidebar() {
         <p className="mt-0.5 text-xs text-text-muted">1 of 1 agents used</p>
         <Link
           href="/dashboard/settings"
+          onClick={onClose}
           className="mt-2 inline-block text-xs font-medium text-primary transition-colors hover:text-primary/80"
         >
           Upgrade
         </Link>
       </div>
     </aside>
+  );
+
+  return (
+    <>
+      {/* Desktop sidebar — always visible on lg+ */}
+      <div className="hidden lg:flex">{sidebarContent}</div>
+
+      {/* Mobile sidebar — overlay drawer */}
+      {mobileOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden"
+            onClick={onClose}
+          />
+          {/* Drawer */}
+          <div className="fixed inset-y-0 left-0 z-50 lg:hidden">
+            {sidebarContent}
+          </div>
+        </>
+      )}
+    </>
   );
 }

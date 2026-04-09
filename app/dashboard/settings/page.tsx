@@ -135,7 +135,7 @@ export default function SettingsPage() {
 
         {/* Keys table */}
         <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+          <table className="w-full min-w-[500px] text-sm">
             <thead>
               <tr className="border-b border-border-leash bg-surface-hover text-left text-xs text-text-muted">
                 <th className="px-4 py-2.5 font-medium">Name</th>

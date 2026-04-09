@@ -124,7 +124,7 @@ function TerminalCTA() {
       onClick={handleClick}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      className="group relative mx-auto flex cursor-pointer items-center gap-3 rounded-xl border border-primary/40 bg-[#060d1b] px-6 py-4 font-mono text-sm shadow-[0_0_20px_#3b82f615,0_0_40px_#3b82f610] transition-all duration-300 hover:border-primary hover:shadow-[0_0_30px_#3b82f630,0_0_60px_#3b82f618]"
+      className="group relative mx-auto flex w-full max-w-lg cursor-pointer items-center gap-2 rounded-xl border border-primary/40 bg-[#060d1b] px-4 py-3 font-mono text-xs shadow-[0_0_20px_#3b82f615,0_0_40px_#3b82f610] transition-all duration-300 hover:border-primary hover:shadow-[0_0_30px_#3b82f630,0_0_60px_#3b82f618] sm:gap-3 sm:px-6 sm:py-4 sm:text-sm"
     >
       {/* Terminal prompt */}
       <span className="select-none text-success">$</span>
@@ -205,7 +205,7 @@ export function Hero() {
 
   return (
     <section
-      className="relative flex min-h-[90vh] items-center justify-center overflow-hidden px-6 py-24"
+      className="relative flex min-h-[90vh] items-center justify-center overflow-hidden px-4 py-16 sm:px-6 md:py-24"
       onMouseMove={(e) => {
         const rect = e.currentTarget.getBoundingClientRect();
         mouseX.set((e.clientX - rect.left) / rect.width);
@@ -253,7 +253,7 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         {/* Headline — word-by-word stagger with scale */}
-        <h1 className="mb-6 text-6xl font-bold leading-[1.05] tracking-[-0.03em] text-text-primary md:text-8xl">
+        <h1 className="mb-6 text-4xl font-bold leading-[1.05] tracking-[-0.03em] text-text-primary sm:text-5xl md:text-6xl lg:text-8xl">
           {words.map((word, i) => (
             <motion.span
               key={i}
@@ -280,7 +280,7 @@ export function Hero() {
             duration: 0.9,
             ease: customEase,
           }}
-          className="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-text-tertiary"
+          className="mx-auto mb-8 max-w-xl text-base leading-relaxed text-text-tertiary sm:mb-10 sm:text-lg"
         >
           Register every agent, scope what it can touch, watch what it does in
           real time, and kill it mid-run when it goes sideways.
@@ -295,7 +295,7 @@ export function Hero() {
             duration: 0.8,
             ease: customEase,
           }}
-          className="mb-14"
+          className="mb-10 sm:mb-14"
         >
           <TerminalCTA />
         </motion.div>
@@ -310,7 +310,7 @@ export function Hero() {
           <span className="text-xs font-medium uppercase tracking-widest text-text-muted">
             Works with
           </span>
-          <div className="flex flex-wrap items-center justify-center gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
             {integrations.map((item, i) => (
               <motion.span
                 key={item.name}

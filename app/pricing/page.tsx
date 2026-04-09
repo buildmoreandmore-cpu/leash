@@ -51,15 +51,15 @@ export default function PricingPage() {
       <Nav />
       <main className="flex-1">
         {/* Page header */}
-        <div className="py-24">
-          <div className="mx-auto max-w-6xl px-6">
+        <div className="py-16 md:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: customEase }}
               className="mb-4 text-center"
             >
-              <h1 className="text-4xl font-bold tracking-tight text-text-primary md:text-5xl">
+              <h1 className="text-3xl font-bold tracking-tight text-text-primary sm:text-4xl md:text-5xl">
                 Simple, transparent pricing
               </h1>
             </motion.div>
@@ -78,14 +78,14 @@ export default function PricingPage() {
         <PricingCards />
 
         {/* FAQ */}
-        <div ref={faqRef} className="px-6 py-24">
+        <div ref={faqRef} className="px-4 py-16 sm:px-6 md:py-24">
           <div className="mx-auto max-w-3xl">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.8, ease: customEase }}
-              className="mb-12 text-center text-3xl font-bold tracking-tight text-text-primary"
+              className="mb-8 text-center text-2xl font-bold tracking-tight text-text-primary sm:mb-12 sm:text-3xl"
             >
               Frequently asked questions
             </motion.h2>

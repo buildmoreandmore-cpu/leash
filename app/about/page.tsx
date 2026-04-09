@@ -20,14 +20,14 @@ export default function AboutPage() {
     <div className="flex min-h-screen flex-col">
       <Nav />
       <main className="flex-1">
-        <div className="py-24">
-          <div className="mx-auto max-w-4xl px-6">
+        <div className="py-16 md:py-24">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6">
             {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: customEase }}
-              className="mb-10 text-4xl font-bold tracking-tight text-text-primary"
+              className="mb-8 text-3xl font-bold tracking-tight text-text-primary sm:mb-10 sm:text-4xl"
             >
               Built by someone who&apos;s seen AI agents go wrong.
             </motion.h1>
@@ -37,7 +37,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.7, ease: customEase }}
-              className="mb-6 text-lg leading-relaxed text-text-secondary"
+              className="mb-6 text-base leading-relaxed text-text-secondary sm:text-lg"
             >
               Leash was built by a cybersecurity expert certified in Identity and
               Access Management who watched the AI agent wave arrive and saw the
@@ -51,7 +51,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.7, ease: customEase }}
-              className="mb-6 text-lg leading-relaxed text-text-secondary"
+              className="mb-6 text-base leading-relaxed text-text-secondary sm:text-lg"
             >
               The developers actually shipping these agents needed something
               different: a lightweight SDK, a real-time dashboard, and governance
@@ -64,7 +64,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.45, duration: 0.7, ease: customEase }}
-              className="mb-16 text-lg leading-relaxed text-text-secondary"
+              className="mb-10 text-base leading-relaxed text-text-secondary sm:mb-16 sm:text-lg"
             >
               That&apos;s what Leash is. The governance layer the founder wished
               existed when agents started going sideways in production.
@@ -75,10 +75,10 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.7, ease: customEase }}
-              className="mb-16"
+              className="mb-10 sm:mb-16"
             >
-              <div className="flex items-start gap-6">
-                <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full border border-border-leash bg-surface">
+              <div className="flex flex-col items-start gap-4 sm:flex-row sm:gap-6">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-border-leash bg-surface sm:h-20 sm:w-20">
                   <User className="h-8 w-8 text-text-muted" />
                 </div>
                 <div>
@@ -102,9 +102,9 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.75, duration: 0.7, ease: customEase }}
-              className="mb-16"
+              className="mb-10 sm:mb-16"
             >
-              <h2 className="mb-6 text-2xl font-bold tracking-tight text-text-primary">
+              <h2 className="mb-6 text-xl font-bold tracking-tight text-text-primary sm:text-2xl">
                 What we believe
               </h2>
               <ul className="flex flex-col gap-4">
@@ -118,7 +118,7 @@ export default function AboutPage() {
                       duration: 0.6,
                       ease: customEase,
                     }}
-                    className="flex items-start gap-3 text-lg text-text-secondary"
+                    className="flex items-start gap-3 text-base text-text-secondary sm:text-lg"
                   >
                     <span className="mt-1.5 block h-2 w-2 shrink-0 rounded-full bg-primary" />
                     {value}
